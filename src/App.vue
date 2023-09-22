@@ -2,6 +2,7 @@
 import HelloWorld from "./components/HelloWorld.vue";
 // const HelloWorld = "HelloWorld";
 console.log("dsfdsf");
+console.log("dsfdsf");
 </script>
 
 <template>

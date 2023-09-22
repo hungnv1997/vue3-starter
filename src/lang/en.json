@@ -1,0 +1,10 @@
+{
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "semi": true,
+  "doubleQuote": true,
+  "printWidth": 80,
+  "formatOnSave": true,
+  "tabWidth": 2,
+  "jsonRecursiveSort": true
+}

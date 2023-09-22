@@ -11,6 +11,11 @@
     "format": "prettier .  --write",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "**/*.{js,jsx,vue,json}": [
+      "prettier --write -u"
+    ]
+  },
   "dependencies": {
     "vue": "^3.3.4"
   },

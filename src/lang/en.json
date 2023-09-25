@@ -1,5 +1,7 @@
 {
-  "a": { "value": "value" },
+  "a": {
+    "value": "value"
+  },
   "arrowParens": "always",
   "doubleQuote": true,
   "endOfLine": "lf",

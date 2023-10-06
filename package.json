@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build-extension": "yarn build && cp src/manifest.json dist/"
   },
   "husky": {
     "hooks": {
@@ -23,6 +24,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
+    "vue-drawing-canvas": "^1.0.14",
     "vue-i18n": "^9.4.1",
     "vue-router": "^4.2.5"
   },

@@ -1,17 +1,23 @@
 <template>
-  <div class="app-character">
+  <h1>Hiragana</h1>
+  <div class="app-character" style="flex-direction: row">
+    <div class="btn-common--slider" @click="handleClickNextCard">&lt;</div>
     <div class="card">
       <div class="content">
         <div class="front">{{ activeCharacter.characters.front }}</div>
         <div class="back">{{ activeCharacter.characters.back }}</div>
       </div>
     </div>
-    <div class="next-btn" @click="handleClickNextCard">></div>
+    <div class="btn-common--slider" @click="handleClickNextCard">></div>
+  </div>
+  <div class="app-character">
+    <draw />
   </div>
 </template>
 
 <script>
 import { reactive } from "vue";
+import Draw from "./components/Draw.vue";
 function shuffleArray(array) {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -21,6 +27,7 @@ function shuffleArray(array) {
   return newArray;
 }
 export default {
+  components: { Draw },
   setup() {
     const hiraganaArray = [
       { front: "あ", back: "a" },
@@ -109,13 +116,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &--row {
+    flex-direction: row;
+  }
 }
 .card {
   // position: absolute;
   // top: 50%;
   // left: 50%;
   width: 300px;
-  height: 300px;
+  height: 175px;
+  min-width: 300px;
   // margin: -150px;
   float: left;
   perspective: 500px;
@@ -142,7 +153,7 @@ body {
   height: 100%;
   width: 100%;
   background: white;
-  line-height: 300px;
+  line-height: 175px;
   color: #03446a;
   text-align: center;
   font-size: 60px;
@@ -158,10 +169,5 @@ body {
 .next-btn {
   // position: absolute;
   // right: 2rem;
-  color: white;
-  background-color: #03446a;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.5rem;
 }
 </style>

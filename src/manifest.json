@@ -1,0 +1,9 @@
+{
+  "action": {
+    "default_popup": "index.html"
+  },
+  "description": "A quick way to learn Japanese alphabet.",
+  "manifest_version": 3,
+  "name": "Japanese alphabet",
+  "version": "0.0.1"
+}

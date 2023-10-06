@@ -1,0 +1,26 @@
+.btn-common {
+    $button_width_small: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--small {
+        font-size: 12px;
+        width: $button_width_small;
+        color: white;
+        background-color: #03446a;
+        height: 2rem;
+        border-radius: 0.5rem;
+    }
+    &--slider {
+        font-size: 27px;
+        width: 3rem;
+        color: white;
+        /* background-color: #03446a; */
+        height: 3rem;
+        border-radius: 0.5rem;
+        border: solid 2px white;
+        font-weight: 400;
+        cursor: pointer;
+        margin: 0 0.5rem;
+    }
+}

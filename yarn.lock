@@ -1449,6 +1449,18 @@ vite@^4.4.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-demi@latest:
+  version "0.14.6"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.6.tgz#dc706582851dc1cdc17a0054f4fec2eb6df74c92"
+  integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
+
+vue-drawing-canvas@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/vue-drawing-canvas/-/vue-drawing-canvas-1.0.14.tgz#59f21ea89fe62ffa4aaafb25ec5a6f1cb6871da0"
+  integrity sha512-afsG6bGXD1DDP7pKslJX3LNLi07R/S97e/9/LNXnPZQBlsNnrL3T68rmodBHeMHr83onhMfym+t3kLkDuApW1Q==
+  dependencies:
+    vue-demi latest
+
 vue-eslint-parser@^9.3.1:
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.3.1.tgz#429955e041ae5371df5f9e37ebc29ba046496182"

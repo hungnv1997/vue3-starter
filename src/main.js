@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import "./style.css";
 import "./assets/scss/_btn-common.scss";
+import "./assets/scss/_checkbox-common.scss";
 import App from "./App.vue";
 import router from "./route/index";
 import { i18n } from "./plugins/i18n";

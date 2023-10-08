@@ -24,3 +24,12 @@
         margin: 0 0.5rem;
     }
 }
+.app-character {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &--row {
+        flex-direction: row;
+    }
+}

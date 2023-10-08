@@ -1,7 +1,31 @@
 <template>
-  <h1>Hiragana</h1>
+  <h1>Japanese alphabet</h1>
+  <div class="app-character">
+    <div class="list-checkbox">
+      <div class="checkbox-wrapper-1">
+        <input
+          v-model="current.checkbox.isHiragana"
+          class="substituted"
+          type="checkbox"
+          aria-hidden="true"
+          @change="handleSelectCheckboxCharacterType"
+        />
+        <label for="example-1">Hiragana</label>
+      </div>
+      <div class="checkbox-wrapper-1">
+        <input
+          v-model="current.checkbox.isKatakana"
+          class="substituted"
+          type="checkbox"
+          aria-hidden="true"
+          @change="handleSelectCheckboxCharacterType"
+        />
+        <label for="example-1">Katakana</label>
+      </div>
+    </div>
+  </div>
   <div class="app-character" style="flex-direction: row">
-    <div class="btn-common--slider" @click="handleClickNextCard">&lt;</div>
+    <div class="btn-common--slider" @click="handleClickBackCard">&lt;</div>
     <div class="card">
       <div class="content">
         <div class="front">{{ activeCharacter.characters.front }}</div>
@@ -13,84 +37,71 @@
   <div class="app-character">
     <draw />
   </div>
+  <modal-donate />
 </template>
 
 <script>
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import Draw from "./components/Draw.vue";
-function shuffleArray(array) {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
+import ModalDonate from "./components/ModalDonate.vue";
+import { hiraganaArray, katakanaArray } from "./constants";
 export default {
-  components: { Draw },
+  components: { Draw, ModalDonate },
   setup() {
-    const hiraganaArray = [
-      { front: "あ", back: "a" },
-      { front: "い", back: "i" },
-      { front: "う", back: "u" },
-      { front: "え", back: "e" },
-      { front: "お", back: "o" },
-      { front: "か", back: "ka" },
-      { front: "き", back: "ki" },
-      { front: "く", back: "ku" },
-      { front: "け", back: "ke" },
-      { front: "こ", back: "ko" },
-      { front: "さ", back: "sa" },
-      { front: "し", back: "shi" },
-      { front: "す", back: "su" },
-      { front: "せ", back: "se" },
-      { front: "そ", back: "so" },
-      { front: "た", back: "ta" },
-      { front: "ち", back: "chi" },
-      { front: "つ", back: "tsu" },
-      { front: "て", back: "te" },
-      { front: "と", back: "to" },
-      { front: "な", back: "na" },
-      { front: "に", back: "ni" },
-      { front: "ぬ", back: "nu" },
-      { front: "ね", back: "ne" },
-      { front: "の", back: "no" },
-      { front: "は", back: "ha" },
-      { front: "ひ", back: "hi" },
-      { front: "ふ", back: "fu" },
-      { front: "へ", back: "he" },
-      { front: "ほ", back: "ho" },
-      { front: "ま", back: "ma" },
-      { front: "み", back: "mi" },
-      { front: "む", back: "mu" },
-      { front: "め", back: "me" },
-      { front: "も", back: "mo" },
-      { front: "や", back: "ya" },
-      { front: "ゆ", back: "yu" },
-      { front: "よ", back: "yo" },
-      { front: "ら", back: "ra" },
-      { front: "り", back: "ri" },
-      { front: "る", back: "ru" },
-      { front: "れ", back: "re" },
-      { front: "ろ", back: "ro" },
-      { front: "わ", back: "wa" },
-      { front: "を", back: "wo" },
-      { front: "ん", back: "n" },
-    ];
-    let current = reactive({ position: 0, shuffleArrayCharacter: [] });
-
-    current.shuffleArrayCharacter = shuffleArray(hiraganaArray);
-    let activeCharacter = reactive({
-      characters: {
-        front: "あ",
-        back: "a",
+    let current = reactive({
+      position: 0,
+      shuffleArrayCharacter: [...hiraganaArray],
+      checkbox: {
+        isHiragana: true,
+        isKatakana: false,
       },
     });
+    let activeCharacter = reactive({
+      characters: {
+        front: "",
+        back: "",
+      },
+    });
+    onMounted(() => {
+      activeCharacter.characters = current.shuffleArrayCharacter[0];
+    });
+    // methods
     const handleClickNextCard = () => {
-      if (current.position >= hiraganaArray.length - 1) {
+      if (!current.shuffleArrayCharacter.length) return;
+      if (current.position >= current.shuffleArrayCharacter.length - 1) {
         current.position = 0;
       } else {
         ++current.position;
+      }
+      activeCharacter.characters =
+        current.shuffleArrayCharacter[current.position];
+    };
+    const handleClickBackCard = () => {
+      if (!current.shuffleArrayCharacter.length) return;
+      if (current.position <= 0) {
+        current.position = current.shuffleArrayCharacter.length - 1;
+      } else {
+        --current.position;
+      }
+      activeCharacter.characters =
+        current.shuffleArrayCharacter[current.position];
+    };
+    const handleSelectCheckboxCharacterType = () => {
+      current.position = 0;
+      if (!current.checkbox.isHiragana && !current.checkbox.isKatakana) {
+        current.shuffleArrayCharacter = [
+          {
+            front: "",
+            back: "",
+          },
+        ];
+      } else if (current.checkbox.isHiragana) {
+        let characterArray = [...hiraganaArray];
+        if (current.checkbox.isKatakana)
+          characterArray = [...characterArray, ...katakanaArray];
+        current.shuffleArrayCharacter = [...characterArray];
+      } else {
+        current.shuffleArrayCharacter = [...katakanaArray];
       }
       activeCharacter.characters =
         current.shuffleArrayCharacter[current.position];
@@ -100,6 +111,8 @@ export default {
       hiraganaArray,
       current,
       handleClickNextCard,
+      handleClickBackCard,
+      handleSelectCheckboxCharacterType,
     };
   },
 };
@@ -111,23 +124,10 @@ body {
   background: #eee;
   font-family: "Lily Script One";
 }
-.app-character {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  &--row {
-    flex-direction: row;
-  }
-}
 .card {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
   width: 300px;
   height: 175px;
   min-width: 300px;
-  // margin: -150px;
   float: left;
   perspective: 500px;
 }
@@ -169,5 +169,14 @@ body {
 .next-btn {
   // position: absolute;
   // right: 2rem;
+}
+.list-checkbox {
+  display: flex;
+  min-width: 300px;
+  max-width: 300px;
+  // justify-content: space-between;
+}
+.checkbox-wrapper-1 {
+  padding: 0.5rem;
 }
 </style>

@@ -22,14 +22,35 @@
         />
         <label for="example-1">Katakana</label>
       </div>
+      <div class="checkbox-wrapper-1">
+        <input
+          v-model="current.checkbox.isRevert"
+          class="substituted"
+          type="checkbox"
+          aria-hidden="true"
+        />
+        <label for="example-1">Revert</label>
+      </div>
     </div>
   </div>
   <div class="app-character" style="flex-direction: row">
     <div class="btn-common--slider" @click="handleClickBackCard">&lt;</div>
     <div class="card">
       <div class="content">
-        <div class="front">{{ activeCharacter.characters.front }}</div>
-        <div class="back">{{ activeCharacter.characters.back }}</div>
+        <div class="front">
+          {{
+            !current.checkbox.isRevert
+              ? activeCharacter.characters.front
+              : activeCharacter.characters.back
+          }}
+        </div>
+        <div class="back">
+          {{
+            !current.checkbox.isRevert
+              ? activeCharacter.characters.back
+              : activeCharacter.characters.front
+          }}
+        </div>
       </div>
     </div>
     <div class="btn-common--slider" @click="handleClickNextCard">></div>
@@ -54,6 +75,7 @@ export default {
       checkbox: {
         isHiragana: true,
         isKatakana: false,
+        isRevert: true,
       },
     });
     let activeCharacter = reactive({

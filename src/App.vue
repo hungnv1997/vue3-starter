@@ -8,8 +8,8 @@
           class="substituted"
           type="checkbox"
           aria-hidden="true"
-          @change="handleSelectCheckboxCharacterType"
         />
+        <!-- @change="handleSelectCheckboxCharacterType" -->
         <label for="example-1">Hiragana</label>
       </div>
       <div class="checkbox-wrapper-1">
@@ -18,8 +18,8 @@
           class="substituted"
           type="checkbox"
           aria-hidden="true"
-          @change="handleSelectCheckboxCharacterType"
         />
+        <!-- @change="handleSelectCheckboxCharacterType" -->
         <label for="example-1">Katakana</label>
       </div>
       <div class="checkbox-wrapper-1">
@@ -40,7 +40,15 @@
         <div class="front">
           {{
             !current.checkbox.isRevert
-              ? activeCharacter.characters.front
+              ? `${
+                  current.checkbox.isHiragana
+                    ? activeCharacter.characters.front
+                    : ""
+                }${
+                  current.checkbox.isKatakana
+                    ? activeCharacter.characters.frontKatakana
+                    : ""
+                }`
               : activeCharacter.characters.back
           }}
         </div>
@@ -48,7 +56,15 @@
           {{
             !current.checkbox.isRevert
               ? activeCharacter.characters.back
-              : activeCharacter.characters.front
+              : `${
+                  current.checkbox.isHiragana
+                    ? activeCharacter.characters.front
+                    : ""
+                }${
+                  current.checkbox.isKatakana
+                    ? activeCharacter.characters.frontKatakana
+                    : ""
+                }`
           }}
         </div>
       </div>
@@ -58,6 +74,7 @@
   <div class="app-character">
     <draw />
   </div>
+  <button @click="handleSpeak">Speak</button>
   <modal-donate />
 </template>
 
@@ -128,6 +145,12 @@ export default {
       activeCharacter.characters =
         current.shuffleArrayCharacter[current.position];
     };
+    const handleSpeak = () => {
+      //speak the text
+      window.speechSynthesis.speak(
+        new SpeechSynthesisUtterance(activeCharacter.characters.back),
+      );
+    };
     return {
       activeCharacter,
       hiraganaArray,
@@ -135,6 +158,7 @@ export default {
       handleClickNextCard,
       handleClickBackCard,
       handleSelectCheckboxCharacterType,
+      handleSpeak,
     };
   },
 };

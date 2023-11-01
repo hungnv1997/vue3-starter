@@ -1,13 +1,3 @@
 {
-  "a": {
-    "value": "value"
-  },
-  "arrowParens": "always",
-  "doubleQuote": true,
-  "endOfLine": "lf",
-  "formatOnSave": true,
-  "jsonRecursiveSort": true,
-  "printWidth": 80,
-  "semi": true,
-  "tabWidth": 2
+  "a": "en"
 }

@@ -1,7 +1,18 @@
 <template>
-  <h1>HOME</h1>
+  <top-request />
+  <answer />
 </template>
 
-<script setup></script>
+<script>
+import Answer from "../../components/game/Answer.vue";
+import TopRequest from "../../components/game/TopRequest.vue";
+
+export default {
+  components: { TopRequest, Answer },
+  setup() {
+    return {};
+  },
+};
+</script>
 
 <style lang="scss" scoped></style>

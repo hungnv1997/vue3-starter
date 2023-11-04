@@ -3,6 +3,7 @@ import "./style.css";
 import App from "./App.vue";
 import router from "./route/index";
 import { i18n } from "./plugins/i18n";
+import "./assets/index.scss";
 const app = createApp(App);
 app.use(router);
 app.use(i18n);

@@ -1,5 +1,8 @@
 <template>
-  <button class="content-button status-button" :class="isOpen ? 'open' : ''">
+  <button
+    class="content-button status-button"
+    :class="[isOpen ? 'open' : '', `btn--${typeButton}`]"
+  >
     {{ btnName }}
   </button>
 </template>
@@ -7,6 +10,10 @@
 <script>
 export default {
   props: {
+    typeButton: {
+      type: String,
+      default: "normal",
+    },
     isOpen: {
       type: Boolean,
       default: false,
@@ -22,4 +29,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn--small {
+  font-size: 10px;
+}
+</style>

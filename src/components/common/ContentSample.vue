@@ -49,8 +49,7 @@
         <button class="content-button">Start free trial</button>
       </div>
     </div>
-    <div class="content-section">
-      <div class="content-section-title">Installed</div>
+    <content-section sectionTitle="Installed">
       <ul>
         <li class="adobe-product">
           <div class="products">
@@ -76,15 +75,7 @@
           >
           <div class="button-wrapper">
             <button class="content-button status-button open">Open</button>
-            <div class="menu">
-              <button class="dropdown">
-                <ul>
-                  <li><a href="#">Go to Discover</a></li>
-                  <li><a href="#">Learn more</a></li>
-                  <li><a href="#">Uninstall</a></li>
-                </ul>
-              </button>
-            </div>
+            <button-dropdown />
           </div>
         </li>
         <li class="adobe-product">
@@ -152,15 +143,7 @@
                 <button class="content-button status-button">Continue</button>
               </div>
             </div>
-            <div class="menu">
-              <button class="dropdown">
-                <ul>
-                  <li><a href="#">Go to Discover</a></li>
-                  <li><a href="#">Learn more</a></li>
-                  <li><a href="#">Uninstall</a></li>
-                </ul>
-              </button>
-            </div>
+            <button-dropdown />
           </div>
         </li>
         <li class="adobe-product">
@@ -187,19 +170,11 @@
           >
           <div class="button-wrapper">
             <button class="content-button status-button open">Open</button>
-            <div class="menu">
-              <button class="dropdown">
-                <ul>
-                  <li><a href="#">Go to Discover</a></li>
-                  <li><a href="#">Learn more</a></li>
-                  <li><a href="#">Uninstall</a></li>
-                </ul>
-              </button>
-            </div>
+            <button-dropdown />
           </div>
         </li>
       </ul>
-    </div>
+    </content-section>
     <div class="content-section">
       <div class="content-section-title">Apps in your plan</div>
       <div class="apps-card">
@@ -284,16 +259,33 @@
         </div>
       </div>
     </div>
+    <content-section sectionTitle="Apps in your plan">
+      <list-cards>
+        <card-common :card="card" />
+        <card-common :card="card" />
+        <card-common :card="card" />
+      </list-cards>
+    </content-section>
   </div>
 </template>
 
 <script>
 import { reactive, toRefs } from "vue";
+import CardCommon from "./CardCommon.vue";
+import ButtonDropdown from "./ButtonDropdown.vue";
+import ListCards from "./ListCards.vue";
+import ContentSection from "./ContentSection.vue";
 
 export default {
+  components: { CardCommon, ButtonDropdown, ListCards, ContentSection },
   setup() {
     const state = reactive({
       count: 0,
+      card: {
+        cardTitle: "After Effects",
+        cardSubTitle: "Industry Standart motion graphics & visual effects",
+        cardButton: "Update",
+      },
     });
 
     return {

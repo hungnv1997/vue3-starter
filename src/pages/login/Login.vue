@@ -1,16 +1,12 @@
 <template>
+  <ContentSample />
   <div>Login</div>
 </template>
 
 <script>
+import ContentSample from "../../components/common/ContentSample.vue";
 export default {
-  mounted() {
-    const toggleButton = document.querySelector(".dark-light");
-
-    toggleButton.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-    });
-  },
+  components: { ContentSample },
   setup() {
     return {};
   },

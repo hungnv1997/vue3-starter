@@ -22,9 +22,11 @@ img {
     right: 30px;
     background-color: var(--dropdown-bg);
     box-shadow: -1px 3px 8px -1px rgba(0, 0, 0, 0.2);
-    padding: 8px;
+    padding: 12px;
     border-radius: 50%;
     z-index: 3;
+    width: 47px;
+    height: 47px;
     cursor: pointer;
     svg {
         width: 24px;
@@ -692,6 +694,7 @@ body.light-mode .video-bg:before {
     border-radius: 14px;
     border: 1px solid var(--theme-bg-color);
     padding: 20px;
+    margin-right: 20px;
     cursor: pointer;
     transition: 0.3s ease;
     &:hover {
@@ -704,9 +707,9 @@ body.light-mode .video-bg:before {
         margin-right: 12px;
         flex-shrink: 0;
     }
-    & + .app-card {
-        margin-left: 20px;
-    }
+    // & + .app-card {
+    //     margin-left: 20px;
+    // }
     span {
         display: flex;
         align-items: center;

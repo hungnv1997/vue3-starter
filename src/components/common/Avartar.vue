@@ -1,8 +1,26 @@
 <template>
-  <img class="profile-img" :src="srcImage" alt="" />
+  <img
+    ref="target"
+    @click="handleActiveDropdown"
+    class="profile-img"
+    :src="srcImage"
+    alt=""
+  />
+  <button
+    class="dropdown content-section"
+    :class="isActiveDropdown ? 'is-active' : ''"
+  >
+    <ul>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </button>
 </template>
 
 <script>
+import { reactive, toRefs, ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 export default {
   props: {
     srcImage: {
@@ -12,9 +30,27 @@ export default {
     },
   },
   setup() {
-    return {};
+    const target = ref(null);
+    const state = reactive({
+      isActiveDropdown: false,
+    });
+    const handleActiveDropdown = () => {
+      state.isActiveDropdown = !state.isActiveDropdown;
+    };
+    onClickOutside(target, () => {
+      state.isActiveDropdown = false;
+    });
+    return {
+      target,
+      ...toRefs(state),
+      handleActiveDropdown,
+    };
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dropdown ul {
+  top: 30px;
+}
+</style>

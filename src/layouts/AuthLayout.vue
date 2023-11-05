@@ -35,8 +35,12 @@
           />
         </div>
         <div class="header-profile" v-if="!auth.isLogin">
-          <ButtonCommon btnName="Login" :style="{ marginRight: '5px' }" />
-          <ButtonCommon btnName="Register" isOpen />
+          <ButtonCommon
+            btnName="Login"
+            :style="{ marginRight: '5px' }"
+            typeButton="small"
+          />
+          <ButtonCommon btnName="Register" isOpen typeButton="small" />
         </div>
       </div>
       <div class="wrapper">
@@ -51,7 +55,6 @@
             </div>
           </div> -->
           <div class="content-wrapper">
-            <ContentSample />
             <router-view />
           </div>
         </div>
@@ -63,20 +66,26 @@
 
 <script>
 import SideBar from "../components/common/SideBar.vue";
-import ContentSample from "../components/common/ContentSample.vue";
 import Avartar from "../components/common/Avartar.vue";
 import Notify from "../components/common/Notify.vue";
 import ButtonCommon from "../components/common/ButtonCommon.vue";
 import { reactive } from "vue";
 
 export default {
+  mounted() {
+    const toggleButton = document.querySelector(".dark-light");
+
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+    });
+  },
   setup() {
     const auth = reactive({
-      isLogin: false,
+      isLogin: true,
     });
     return { auth };
   },
-  components: { SideBar, ContentSample, Avartar, Notify, ButtonCommon },
+  components: { SideBar, Avartar, Notify, ButtonCommon },
 };
 </script>
 

@@ -1,6 +1,31 @@
 <template>
   <div class="left-side">
-    <div class="side-wrapper">
+    <div
+      class="side-wrapper"
+      v-for="(navigation, index) in sideBar"
+      :key="navigation.id + index"
+    >
+      <div class="side-title">{{ navigation.groupTitle }}</div>
+      <div
+        class="side-menu"
+        v-for="(childNavigation, childIndex) in navigation.childs"
+        :key="childNavigation.idPrefix + childIndex"
+      >
+        <a href="#">
+          <component :is="childNavigation.icon" />{{ childNavigation.name }}
+        </a>
+        <!-- <a href="#">
+          <svg viewBox="0 0 488.932 488.932" fill="currentColor">
+            <path
+              d="M243.158 61.361v-57.6c0-3.2 4-4.9 6.7-2.9l118.4 87c2 1.5 2 4.4 0 5.9l-118.4 87c-2.7 2-6.7.2-6.7-2.9v-57.5c-87.8 1.4-158.1 76-152.1 165.4 5.1 76.8 67.7 139.1 144.5 144 81.4 5.2 150.6-53 163-129.9 2.3-14.3 14.7-24.7 29.2-24.7 17.9 0 31.8 15.9 29 33.5-17.4 109.7-118.5 192-235.7 178.9-98-11-176.7-89.4-187.8-187.4-14.7-128.2 84.9-237.4 209.9-238.8z"
+            />
+          </svg>
+          Updates
+          <span class="notification-number updates">3</span>
+        </a> -->
+      </div>
+    </div>
+    <!-- <div class="side-wrapper">
       <div class="side-title">Apps</div>
       <div class="side-menu">
         <a href="#">
@@ -171,27 +196,82 @@
           Social Forum
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-// import DashboardImageVue from "../images/DashboardImage.vue";
+import DashboardImageVue from "../images/DashboardImage.vue";
 
 export default {
   setup() {
-    // const sideBar = [
-    //   {
-    //     groupTitle: "Apps",
-    //     childs: [
-    //       {
-    //         name: "All Apps",
-    //         icon: <DashboardImageVue />,
-    //       },
-    //     ],
-    //   },
-    // ];
-    return {};
+    const sideBar = [
+      {
+        id: "parents",
+        groupTitle: "Apps",
+        childs: [
+          {
+            idPrefix: "childNav",
+            name: "Dashboard",
+            icon: DashboardImageVue,
+          },
+        ],
+      },
+      {
+        id: "parents",
+        groupTitle: "Learning",
+        childs: [
+          {
+            idPrefix: "childNav",
+            name: "Lessons",
+            icon: DashboardImageVue,
+          },
+          {
+            idPrefix: "childNav",
+            name: "Import lessons",
+            icon: DashboardImageVue,
+          },
+        ],
+      },
+      {
+        id: "parents",
+        groupTitle: "Resource Links",
+        childs: [
+          {
+            idPrefix: "childNav",
+            name: "Tutorials",
+            icon: DashboardImageVue,
+          },
+          {
+            idPrefix: "childNav",
+            name: "Social Forum",
+            icon: DashboardImageVue,
+          },
+          {
+            idPrefix: "childNav",
+            name: "Trading lessons",
+            icon: DashboardImageVue,
+          },
+        ],
+      },
+      {
+        id: "parents",
+        groupTitle: "Helps",
+        childs: [
+          {
+            idPrefix: "childNav",
+            name: "Đặt câu hỏi",
+            icon: DashboardImageVue,
+          },
+          {
+            idPrefix: "childNav",
+            name: "Nhân viên hỗ trợ",
+            icon: DashboardImageVue,
+          },
+        ],
+      },
+    ];
+    return { sideBar };
   },
 };
 </script>

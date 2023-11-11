@@ -11,9 +11,10 @@
         v-for="(childNavigation, childIndex) in navigation.childs"
         :key="childNavigation.idPrefix + childIndex"
       >
-        <a href="#">
+        <router-link :to="childNavigation.routerLink">
           <component :is="childNavigation.icon" />{{ childNavigation.name }}
-        </a>
+          <span class="notification-number updates">3</span>
+        </router-link>
         <!-- <a href="#">
           <svg viewBox="0 0 488.932 488.932" fill="currentColor">
             <path
@@ -21,7 +22,7 @@
             />
           </svg>
           Updates
-          <span class="notification-number updates">3</span>
+          
         </a> -->
       </div>
     </div>
@@ -202,6 +203,11 @@
 
 <script>
 import DashboardImageVue from "../images/DashboardImage.vue";
+import GraphicDesignVue from "../images/GraphicDesign.vue";
+import IllustrationsVue from "../images/Illustrations.vue";
+import TutorialsVue from "../images/Tutorials.vue";
+import SocialForumVue from "../images/SocialForum.vue";
+import Icon3DARVue from "../images/Icon3DAR.vue";
 
 export default {
   setup() {
@@ -214,6 +220,7 @@ export default {
             idPrefix: "childNav",
             name: "Dashboard",
             icon: DashboardImageVue,
+            routerLink: "/",
           },
         ],
       },
@@ -224,12 +231,14 @@ export default {
           {
             idPrefix: "childNav",
             name: "Lessons",
-            icon: DashboardImageVue,
+            icon: GraphicDesignVue,
+            routerLink: "/lessons",
           },
           {
             idPrefix: "childNav",
             name: "Import lessons",
-            icon: DashboardImageVue,
+            icon: IllustrationsVue,
+            routerLink: "/import-lesson",
           },
         ],
       },
@@ -240,17 +249,20 @@ export default {
           {
             idPrefix: "childNav",
             name: "Tutorials",
-            icon: DashboardImageVue,
+            icon: TutorialsVue,
+            routerLink: "/tutorials",
           },
           {
             idPrefix: "childNav",
             name: "Social Forum",
-            icon: DashboardImageVue,
+            icon: SocialForumVue,
+            routerLink: "/social-forums",
           },
           {
             idPrefix: "childNav",
             name: "Trading lessons",
-            icon: DashboardImageVue,
+            icon: Icon3DARVue,
+            routerLink: "/trading-lessons",
           },
         ],
       },
@@ -260,13 +272,15 @@ export default {
         childs: [
           {
             idPrefix: "childNav",
-            name: "Đặt câu hỏi",
+            name: "Questions",
             icon: DashboardImageVue,
+            routerLink: "/questions",
           },
           {
             idPrefix: "childNav",
-            name: "Nhân viên hỗ trợ",
+            name: "Online suport",
             icon: DashboardImageVue,
+            routerLink: "/support",
           },
         ],
       },

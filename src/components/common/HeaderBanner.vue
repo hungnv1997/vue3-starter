@@ -49,6 +49,7 @@
 
 <script>
 export default {
+  name: "HeaderBanner",
   props: {
     bannerTitle: {
       type: String,
@@ -69,4 +70,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.content-wrapper-header {
+  margin-bottom: 1rem;
+}
+</style>

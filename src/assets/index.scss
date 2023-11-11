@@ -487,6 +487,9 @@ body.light-mode .video-bg:before {
         &.green {
             background-color: #3bf083;
         }
+        &.white {
+            background-color: white;
+        }
     }
     &-button {
         font-size: 15px;

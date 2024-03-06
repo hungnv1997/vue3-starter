@@ -1,90 +1,27 @@
 <template>
-  <h1>Japanese alphabet</h1>
-  <div class="app-character">
-    <div class="list-checkbox">
-      <div class="checkbox-wrapper-1">
-        <input
-          v-model="current.checkbox.isHiragana"
-          class="substituted"
-          type="checkbox"
-          aria-hidden="true"
-        />
-        <!-- @change="handleSelectCheckboxCharacterType" -->
-        <label for="example-1">Hiragana</label>
-      </div>
-      <div class="checkbox-wrapper-1">
-        <input
-          v-model="current.checkbox.isKatakana"
-          class="substituted"
-          type="checkbox"
-          aria-hidden="true"
-        />
-        <!-- @change="handleSelectCheckboxCharacterType" -->
-        <label for="example-1">Katakana</label>
-      </div>
-      <div class="checkbox-wrapper-1">
-        <input
-          v-model="current.checkbox.isRevert"
-          class="substituted"
-          type="checkbox"
-          aria-hidden="true"
-        />
-        <label for="example-1">Revert</label>
-      </div>
-    </div>
-  </div>
-  <div class="app-character" style="flex-direction: row">
-    <div class="btn-common--slider" @click="handleClickBackCard">&lt;</div>
-    <div class="card">
-      <div class="content">
-        <div class="front">
-          {{
-            !current.checkbox.isRevert
-              ? `${
-                  current.checkbox.isHiragana
-                    ? activeCharacter.characters.front
-                    : ""
-                }${
-                  current.checkbox.isKatakana
-                    ? activeCharacter.characters.frontKatakana
-                    : ""
-                }`
-              : activeCharacter.characters.back
-          }}
-        </div>
-        <div class="back">
-          {{
-            !current.checkbox.isRevert
-              ? activeCharacter.characters.back
-              : `${
-                  current.checkbox.isHiragana
-                    ? activeCharacter.characters.front
-                    : ""
-                }${
-                  current.checkbox.isKatakana
-                    ? activeCharacter.characters.frontKatakana
-                    : ""
-                }`
-          }}
-        </div>
-      </div>
-    </div>
-    <div class="btn-common--slider" @click="handleClickNextCard">></div>
-  </div>
-  <div class="app-character">
-    <draw />
-  </div>
-  <button @click="handleSpeak">Speak</button>
+  <HeaderExtension />
+  <p>
+    <!-- use the router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- `<router-link>` will render an `<a>` tag with -->
+    <!-- the correct `href` attribute -->
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/login">Go to About</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
+  <!-- <button @click="handleSpeak">Speak</button> -->
   <modal-donate />
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
-import Draw from "./components/Draw.vue";
 import ModalDonate from "./components/ModalDonate.vue";
 import { hiraganaArray, katakanaArray } from "./constants";
+import HeaderExtension from "./components/common/HeaderExtension.vue";
 export default {
-  components: { Draw, ModalDonate },
+  components: { ModalDonate, HeaderExtension },
   setup() {
     let current = reactive({
       position: 0,
@@ -226,3 +163,4 @@ body {
   padding: 0.5rem;
 }
 </style>
+./components/common/HeaderExtension.vue

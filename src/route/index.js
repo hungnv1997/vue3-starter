@@ -1,10 +1,10 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 
 import Default from "../layouts/Default.vue";
 import AuthLayout from "../layouts/AuthLayout.vue";
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "home",
     component: () => import("../pages/home/Home.vue"),
     // component: Home,
@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

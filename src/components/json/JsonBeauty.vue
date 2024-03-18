@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div class="block border border-1 border-sky">
     <div class="flex flex-row">
       <div>
         <label>showLine</label>

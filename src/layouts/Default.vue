@@ -1,7 +1,11 @@
 <template>
   <!-- blank -->
+  <SiteHeaderVue />
   <router-view />
 </template>
+<script setup>
+import SiteHeaderVue from "../components/common/SiteHeader.vue";
+</script>
 <style lang="scss" scoped>
 .logo {
   height: 6em;

@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import FillCharacterToBlank from "../../components/game/FillCharacterToBlank.vue";
-import MultipleChoice from "../../components/game/MultipleChoice.vue";
-import ShuffleWord from "../../components/game/ShuffleWord.vue";
+import FillCharacterToBlank from "@/components/game/FillCharacterToBlank.vue";
+import MultipleChoice from "@/components/game/MultipleChoice.vue";
+import ShuffleWord from "@/components/game/ShuffleWord.vue";
 const GAMES = [
   "FLASH_CARD",
   "SHUFFLE_CHARACTER",

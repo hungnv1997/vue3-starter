@@ -13,6 +13,15 @@ const routes = [
     },
   },
   {
+    path: "/game",
+    name: "game",
+    component: () => import("../pages/game/Game.vue"),
+    // component: Home,
+    meta: {
+      layout: Default,
+    },
+  },
+  {
     path: "/login",
     name: "add",
     component: () => import("../pages/login/Login.vue"),

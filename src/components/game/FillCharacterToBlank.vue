@@ -1,25 +1,41 @@
 <template>
   <div class="word-puzzle">
-    <input
-      v-for="(char, index) in wordArray"
-      :key="index"
-      class="char-input"
-      type="text"
-      maxlength="1"
-      v-model="userInputs[index]"
-    />
+    <div class="flex flex-wrap">
+      <input
+        v-for="(char, index) in wordArray"
+        :key="index"
+        class="char-input"
+        type="text"
+        maxlength="1"
+        v-model="userInputs[index]"
+      />
+    </div>
     <button v-if="isComplete" class="answer-button" @click="checkAnswer">
       Answer
     </button>
+    <NextBtn />
   </div>
 </template>
 
 <script>
+import NextBtn from "./share/NextBtn.vue";
+
 export default {
+  components: {
+    NextBtn,
+  },
   props: {
     word: {
-      type: String,
-      default: "test a book",
+      type: Object,
+      default: () => {
+        return {
+          ipa: "hæv",
+          word: "have",
+          antonyms: "lack, miss",
+          example: "I have a dog.",
+          mean: "verb (to possess, to experience)",
+        };
+      },
     },
   },
   data() {
@@ -29,19 +45,19 @@ export default {
   },
   computed: {
     wordArray() {
-      return this.word.split("");
+      return this.word?.word?.split("");
     },
     isComplete() {
       return this.userInputs.every((input) => input !== "");
     },
   },
   created() {
-    this.userInputs = Array(this.word.length).fill("");
+    this.userInputs = Array(this.word?.word?.length).fill("");
   },
   methods: {
     checkAnswer() {
       const userWord = this.userInputs.join("");
-      if (userWord === this.word) {
+      if (userWord === this.word?.word) {
         alert("Correct!");
       } else {
         alert("Wrong answer.");

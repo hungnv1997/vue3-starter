@@ -1,5 +1,4 @@
 <template>
-  <h1 class="title">Japanese alphabet</h1>
   <div class="app-character">
     <div class="list-checkbox">
       <div class="checkbox-wrapper-1">
@@ -8,8 +7,8 @@
           class="substituted"
           type="checkbox"
           aria-hidden="true"
+          @change="handleSelectCheckboxCharacterType"
         />
-        <!-- @change="handleSelectCheckboxCharacterType" -->
         <label for="example-1">Hiragana</label>
       </div>
       <div class="checkbox-wrapper-1">
@@ -18,18 +17,9 @@
           class="substituted"
           type="checkbox"
           aria-hidden="true"
+          @change="handleSelectCheckboxCharacterType"
         />
-        <!-- @change="handleSelectCheckboxCharacterType" -->
         <label for="example-1">Katakana</label>
-      </div>
-      <div class="checkbox-wrapper-1">
-        <input
-          v-model="current.checkbox.isRevert"
-          class="substituted"
-          type="checkbox"
-          aria-hidden="true"
-        />
-        <label for="example-1">Revert</label>
       </div>
     </div>
   </div>
@@ -37,36 +27,8 @@
     <div class="btn-common--slider" @click="handleClickBackCard">&lt;</div>
     <div class="card">
       <div class="content">
-        <div class="front">
-          {{
-            !current.checkbox.isRevert
-              ? `${
-                  current.checkbox.isHiragana
-                    ? activeCharacter.characters.front
-                    : ""
-                }${
-                  current.checkbox.isKatakana
-                    ? activeCharacter.characters.frontKatakana
-                    : ""
-                }`
-              : activeCharacter.characters.back
-          }}
-        </div>
-        <div class="back">
-          {{
-            !current.checkbox.isRevert
-              ? activeCharacter.characters.back
-              : `${
-                  current.checkbox.isHiragana
-                    ? activeCharacter.characters.front
-                    : ""
-                }${
-                  current.checkbox.isKatakana
-                    ? activeCharacter.characters.frontKatakana
-                    : ""
-                }`
-          }}
-        </div>
+        <div class="front">{{ activeCharacter.characters.front }}</div>
+        <div class="back">{{ activeCharacter.characters.back }}</div>
       </div>
     </div>
     <div class="btn-common--slider" @click="handleClickNextCard">></div>
@@ -74,16 +36,16 @@
   <div class="app-character">
     <draw />
   </div>
-  <button @click="handleSpeak">Speak</button>
   <modal-donate />
 </template>
 
 <script>
 import { onMounted, reactive } from "vue";
-import Draw from "./components/Draw.vue";
-import ModalDonate from "./components/ModalDonate.vue";
-import { hiraganaArray, katakanaArray } from "./constants";
+import Draw from "./Draw.vue";
+import ModalDonate from "./ModalDonate.vue";
+import { hiraganaArray, katakanaArray } from "../constants";
 export default {
+  name: "Alphabet",
   components: { Draw, ModalDonate },
   setup() {
     let current = reactive({
@@ -92,7 +54,6 @@ export default {
       checkbox: {
         isHiragana: true,
         isKatakana: false,
-        isRevert: true,
       },
     });
     let activeCharacter = reactive({
@@ -145,12 +106,6 @@ export default {
       activeCharacter.characters =
         current.shuffleArrayCharacter[current.position];
     };
-    const handleSpeak = () => {
-      //speak the text
-      window.speechSynthesis.speak(
-        new SpeechSynthesisUtterance(activeCharacter.characters.back),
-      );
-    };
     return {
       activeCharacter,
       hiraganaArray,
@@ -158,7 +113,6 @@ export default {
       handleClickNextCard,
       handleClickBackCard,
       handleSelectCheckboxCharacterType,
-      handleSpeak,
     };
   },
 };
@@ -224,15 +178,5 @@ body {
 }
 .checkbox-wrapper-1 {
   padding: 0.5rem;
-}
-.title {
-  background: -webkit-linear-gradient(
-    60deg,
-    hsl(202deg 100% 25%),
-    hsl(205deg 100% 35%),
-    hsl(270deg 100% 72%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 </style>

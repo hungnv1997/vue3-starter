@@ -1,7 +1,7 @@
 <template>
   <header :class="[{ 'Header--bg': isScrolled }, 'Header']">
     <router-link :to="homeRoute">
-      <div class="Header__logo">
+      <!-- <div class="Header__logo">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 111 30"
@@ -13,6 +13,12 @@
             ></path>
           </g>
         </svg>
+      </div> -->
+      <div class="logo-holder logo-4">
+        <a href="">
+          <h3>Viuviu</h3>
+          <p>.com</p>
+        </a>
       </div>
     </router-link>
 
@@ -165,4 +171,20 @@ export default {
 
 <style lang="scss">
 @import "./Header.scss";
+.logo-4 p {
+  font-size: 8px;
+  margin-left: 50px;
+  color: #e4e4e4;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-style: italic;
+  font-family: "Mansalva", cursive;
+}
+.logo-4 h3 {
+  color: #ea1700;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 0.65;
+  font-family: "Lobster", cursive;
+}
 </style>

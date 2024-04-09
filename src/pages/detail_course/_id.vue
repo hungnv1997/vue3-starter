@@ -1,14 +1,14 @@
 <template>
-  <ContentSample />
+  <div></div>
 </template>
 
 <script>
-import ContentSample from "../../components/common/ContentSample.vue";
 export default {
-  components: { ContentSample },
+  name: "DetailCourse",
   setup() {
     return {};
   },
 };
 </script>
+
 <style lang="scss" scoped></style>

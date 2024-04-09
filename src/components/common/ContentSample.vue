@@ -49,6 +49,11 @@
         <button class="content-button">Start free trial</button>
       </div>
     </div>
+    <HeaderBanner
+      :bannerButton="'Start free trial'"
+      :bannerTitle="'Adobe Stock'"
+      :bannerDescription="'Grab yourself 10 free images from Adobe Stock in a 30-day free trial plan and find perfect image, that will help you with your new project.'"
+    />
     <content-section sectionTitle="Installed">
       <ul>
         <li class="adobe-product">
@@ -275,9 +280,16 @@ import CardCommon from "./CardCommon.vue";
 import ButtonDropdown from "./ButtonDropdown.vue";
 import ListCards from "./ListCards.vue";
 import ContentSection from "./ContentSection.vue";
+import HeaderBanner from "./HeaderBanner.vue";
 
 export default {
-  components: { CardCommon, ButtonDropdown, ListCards, ContentSection },
+  components: {
+    CardCommon,
+    ButtonDropdown,
+    ListCards,
+    ContentSection,
+    HeaderBanner,
+  },
   setup() {
     const state = reactive({
       count: 0,

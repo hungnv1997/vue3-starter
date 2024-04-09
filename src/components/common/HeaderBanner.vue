@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper-header">
+  <div class="content-wrapper-header u-margin-top--default">
     <div class="content-wrapper-context">
       <h3 class="img-content">
         <svg viewBox="0 0 512 512">

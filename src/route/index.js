@@ -1,8 +1,17 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 
 import Default from "../layouts/Default.vue";
 import AuthLayout from "../layouts/AuthLayout.vue";
 const routes = [
+  {
+    path: "/",
+    name: "*",
+    component: () => import("../pages/home/Home.vue"),
+    // component: Home,
+    meta: {
+      layout: Default,
+    },
+  },
   {
     path: "/home",
     name: "home",
@@ -11,6 +20,15 @@ const routes = [
     meta: {
       layout: Default,
     },
+  },
+  {
+    path: "/detail_course/:id",
+    component: () => import("../pages/detail_course/_id.vue"),
+    // component: Home,
+    meta: {
+      layout: Default,
+    },
+    sensitive: true,
   },
   {
     path: "/login",
@@ -23,7 +41,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

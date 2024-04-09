@@ -31,9 +31,33 @@ const routes = [
     sensitive: true,
   },
   {
+    path: "/",
+    name: "dashboard",
+    component: () => import("../pages/login/Login.vue"),
+    meta: {
+      layout: AuthLayout,
+    },
+  },
+  {
     path: "/login",
     name: "add",
     component: () => import("../pages/login/Login.vue"),
+    meta: {
+      layout: AuthLayout,
+    },
+  },
+  {
+    path: "/lessons",
+    name: "lesson",
+    component: () => import("../pages/Lessons.vue"),
+    meta: {
+      layout: AuthLayout,
+    },
+  },
+  {
+    path: "/icons",
+    name: "icons",
+    component: () => import("../pages/sample/Icons.vue"),
     meta: {
       layout: AuthLayout,
     },

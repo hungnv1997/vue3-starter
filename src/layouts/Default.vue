@@ -4,7 +4,7 @@
   <router-view />
 </template>
 <script setup>
-import SiteHeaderVue from "../components/common/SiteHeader.vue";
+import SiteHeaderVue from "../components/Header/SiteHeader.vue";
 </script>
 <style lang="scss" scoped>
 .logo {

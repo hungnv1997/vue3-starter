@@ -1,7 +1,7 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 
 import Default from "../layouts/Default.vue";
-import AuthLayout from "../layouts/AuthLayout.vue";
+// import AuthLayout from "../layouts/AuthLayout.vue";
 const routes = [
   {
     path: "/",
@@ -12,23 +12,23 @@ const routes = [
       layout: Default,
     },
   },
-  {
-    path: "/game",
-    name: "game",
-    component: () => import("../pages/game/Game.vue"),
-    // component: Home,
-    meta: {
-      layout: Default,
-    },
-  },
-  {
-    path: "/login",
-    name: "add",
-    component: () => import("../pages/login/Login.vue"),
-    meta: {
-      layout: AuthLayout,
-    },
-  },
+  // {
+  //   path: "/game",
+  //   name: "game",
+  //   component: () => import("../pages/game/Game.vue"),
+  //   // component: Home,
+  //   meta: {
+  //     layout: Default,
+  //   },
+  // },
+  // {
+  //   path: "/login",
+  //   name: "add",
+  //   component: () => import("../pages/login/Login.vue"),
+  //   meta: {
+  //     layout: AuthLayout,
+  //   },
+  // },
   {
     path: "/:pathMatch(.*)*",
     component: () => import("../pages/404/PageNotFound.vue"),

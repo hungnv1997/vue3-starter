@@ -12,10 +12,10 @@
       </Slider>
     </div>
     <div class="Home__slider-list">
-      <!-- <MovieSlider
+      <MovieSlider
         category-title="Netflix Originals"
         request-url="discover/tv?with_networks=213"
-      /> -->
+      />
       <!-- <MovieSlider
         category-title="Trending Now"
         request-url="trending/all/week"
@@ -32,7 +32,7 @@
 <script>
 import Slider from "../../components/Slider/Slider.vue";
 import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
-// import MovieSlider from "@/components/MovieSlider/MovieSlider.vue";
+import MovieSlider from "@/components/MovieSlider/MovieSlider.vue";
 
 export default {
   name: "Home",
@@ -228,7 +228,7 @@ export default {
   components: {
     Slider,
     MovieDetails,
-    // MovieSlider,
+    MovieSlider,
   },
   mounted() {
     // this.$refs.slider.toggleLoading();

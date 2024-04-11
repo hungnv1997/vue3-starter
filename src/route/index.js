@@ -12,6 +12,14 @@ const routes = [
       layout: Default,
     },
   },
+  {
+    path: "/detail/:id",
+    name: "detail",
+    component: () => import("../pages/detail/Detail.vue"),
+    meta: {
+      layout: Default,
+    },
+  },
   // {
   //   path: "/game",
   //   name: "game",
@@ -31,7 +39,11 @@ const routes = [
   // },
   {
     path: "/:pathMatch(.*)*",
+    name: "404",
     component: () => import("../pages/404/PageNotFound.vue"),
+    meta: {
+      layout: Default,
+    },
   },
 ];
 

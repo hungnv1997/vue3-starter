@@ -1,6 +1,7 @@
 <template>
   <div
     class="MovieDetails"
+    :class="isFull ? 'MovieDetails__full' : ''"
     :style="{ backgroundImage: getBackgroundImageUrl(movie.backdrop_path, 2) }"
   >
     <div class="MovieDetails__fade--top" />
@@ -55,6 +56,10 @@ export default {
       overview: String,
       genre_ids: Array,
       backdrop_path: String,
+    },
+    isFull: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

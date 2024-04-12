@@ -11,6 +11,7 @@ import {
   faPlusCircle,
   faInfoCircle,
   faSearch,
+  faHomeUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
@@ -28,4 +29,5 @@ library.add(
   faPlusCircle,
   faInfoCircle,
   faSearch,
+  faHomeUser,
 );

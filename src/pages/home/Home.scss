@@ -1,7 +1,7 @@
 @import "../../assets/scss/helpers/breakpoints";
 
 .Home {
-  width: 100vw;
+  width: 100%;
   &__main-slider {
     height: 100vh;
     @include sm {

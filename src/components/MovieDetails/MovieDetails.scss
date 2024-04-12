@@ -52,7 +52,7 @@
 
   &__wrapper {
     width: 100%;
-    padding: 1rem;
+    padding: 3rem;
     @include sm {
       padding: 2rem;
     }
@@ -88,6 +88,10 @@
   }
 
   &__description {
+    max-height: 4rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 1rem;
     color: $gray500;
     @include sm {

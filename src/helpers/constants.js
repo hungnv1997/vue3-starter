@@ -6,7 +6,7 @@ export const routes = {
   recoverPasswordSuccess: "/recover-password/success",
   recoverPasswordCode: "/recover-password/:code",
 
-  home: "/home",
+  home: "/",
   tvShows: "/tv-shows",
   movies: "/movies",
   popular: "/popular",

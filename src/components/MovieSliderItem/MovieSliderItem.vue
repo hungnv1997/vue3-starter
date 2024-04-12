@@ -42,7 +42,7 @@ export default {
       const slide = this.$el.parentNode;
       const slider = slide.parentNode;
       slider.childNodes.forEach((slide) =>
-        slide.classList.remove("Slider__slide--selected"),
+        slide?.classList?.remove("Slider__slide--selected"),
       );
       slide.classList.add("Slider__slide--selected");
       this.$emit("select-movie", movie);

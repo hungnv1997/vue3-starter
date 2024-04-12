@@ -3,12 +3,15 @@
 
 .MovieSlider {
   &__wrapper {
-    padding: 0 1rem;
+    background-color: #1a1a1a;
+    padding: 1rem 1rem;
     @include sm {
       padding: 0 2rem;
       margin-bottom: 1.5rem;
     }
     .Slider {
+      align-items: center;
+      display: flex;
       min-height: 13rem;
     }
   }
@@ -20,7 +23,7 @@
     width: 100%;
     min-height: 20rem;
     z-index: $z-index-modal;
-    
+
     @include sm {
       position: absolute;
       top: calc(100% - 1rem);

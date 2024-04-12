@@ -1,7 +1,14 @@
 <template>
   <div class="story__details">
+    <Crumb />
     <MovieDetails :movie="movie" :isFull="false" />
     <!-- <MovieSliderItem :movie="movie" /> -->
+  </div>
+  <div class="Home__slider-list">
+    <MovieSlider
+      category-title="Netflix Originals"
+      request-url="discover/tv?with_networks=213"
+    />
   </div>
 </template>
 
@@ -9,11 +16,14 @@
 // import MovieSliderItem from "../../components/MovieSliderItem/MovieSliderItem.vue";
 
 import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
+import MovieSlider from "../../components/MovieSlider/MovieSlider.vue";
+import Crumb from "../../components/common/crumb/Crumb.vue";
 
 export default {
   components: {
     MovieDetails,
-    // MovieSliderItem,
+    MovieSlider,
+    Crumb,
   },
   data() {
     return {
@@ -42,11 +52,6 @@ export default {
   methods: {
     fetchMovieDetail() {
       // Fetch movie details from your API
-      // For example, using axios:
-      // axios.get(`/api/movies/${this.$route.params.id}`)
-      //   .then(response => {
-      //     this.movie = response.data;
-      //   })
     },
     goBack() {
       this.$router.go(-1);
@@ -55,10 +60,10 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../home/Home.scss";
 .story__details {
-  top: 6rem;
+  margin-top: 6rem;
+  width: 100vw;
   //   background-color: black;
-  border-radius: 2rem;
-  padding: 2rem;
 }
 </style>

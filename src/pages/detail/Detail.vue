@@ -19,7 +19,13 @@
       <template #target> sdfdsf </template>
     </Collapse>
     <Collapse :title="'Chap 1 - Chap 10'">
-      <template #target> sdfdsf </template>
+      <template #target>
+        <router-link
+          class="bread-crumb__link"
+          :to="'/tan-the-bang-phong/chap-1'"
+          >Chap 1: Test</router-link
+        >
+      </template>
     </Collapse>
     <Collapse :title="'Chap 10 - Chap 20'">
       <template #target> sdfdsf </template>
@@ -34,7 +40,7 @@ import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
 import MovieSlider from "../../components/MovieSlider/MovieSlider.vue";
 import Collapse from "../../components/common/collapse/Collapse.vue";
 import Crumb from "../../components/common/crumb/Crumb.vue";
-
+import { routes } from "@/helpers/constants.js";
 export default {
   components: {
     MovieDetails,
@@ -44,6 +50,7 @@ export default {
   },
   data() {
     return {
+      routes,
       movie: {
         adult: false,
         backdrop_path: "/nd11dhqVr4r2UVlIVjq17Sums04.jpg",

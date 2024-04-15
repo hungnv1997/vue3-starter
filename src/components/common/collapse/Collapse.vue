@@ -81,7 +81,6 @@ export default {
       let box = btn.closest(`[data-toggle="box-border${this.id}"]`);
       let target = document.getElementById(`target${this.id}`);
       let buttonC = document.getElementById(`btn${this.id}`);
-      console.log(buttonC, `#target${this.id}`);
       buttonC.classList.toggle("is-open");
       box.classList.toggle("is-box-open");
       if (target.style.display === "none") {

@@ -20,15 +20,14 @@ const routes = [
       layout: Default,
     },
   },
-  // {
-  //   path: "/game",
-  //   name: "game",
-  //   component: () => import("../pages/game/Game.vue"),
-  //   // component: Home,
-  //   meta: {
-  //     layout: Default,
-  //   },
-  // },
+  {
+    path: "/:movie/:id",
+    name: "Movie",
+    component: () => import("../pages/reading/Reading.vue"),
+    meta: {
+      layout: Default,
+    },
+  },
   // {
   //   path: "/login",
   //   name: "add",

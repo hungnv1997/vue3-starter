@@ -23,17 +23,27 @@ import getImageUrl from "../../helpers/getImageUrl";
 
 export default {
   name: "MovieSliderItem",
+  components: {
+    MovieLabels,
+  },
   props: {
     movie: {
+      type: Object,
       name: String,
       title: String,
       overview: String,
       backdrop_path: String,
+      default() {
+        return {
+          name: "",
+          title: "",
+          overview: "",
+          backdrop_path: "",
+        };
+      },
     },
   },
-  components: {
-    MovieLabels,
-  },
+
   methods: {
     getImageUrl(url, size) {
       return getImageUrl(url, size, "backdrop");

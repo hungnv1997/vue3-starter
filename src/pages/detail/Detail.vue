@@ -1,7 +1,7 @@
 <template>
   <div class="story__details">
     <Crumb />
-    <MovieDetails :movie="movie" :isFull="false" />
+    <MovieDetails :movie="movie" :is-full="false" />
     <!-- <MovieSliderItem :movie="movie" /> -->
   </div>
   <div class="Home__slider-list">
@@ -10,6 +10,21 @@
       request-url="discover/tv?with_networks=213"
     />
   </div>
+  <div class="margin-top">
+    <Collapse
+      :title="'Mới nhất'"
+      :is-show-btn-img="true"
+      :init-display-target="true"
+    >
+      <template #target> sdfdsf </template>
+    </Collapse>
+    <Collapse :title="'Chap 1 - Chap 10'">
+      <template #target> sdfdsf </template>
+    </Collapse>
+    <Collapse :title="'Chap 10 - Chap 20'">
+      <template #target> sdfdsf </template>
+    </Collapse>
+  </div>
 </template>
 
 <script>
@@ -17,6 +32,7 @@
 
 import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
 import MovieSlider from "../../components/MovieSlider/MovieSlider.vue";
+import Collapse from "../../components/common/collapse/Collapse.vue";
 import Crumb from "../../components/common/crumb/Crumb.vue";
 
 export default {
@@ -24,6 +40,7 @@ export default {
     MovieDetails,
     MovieSlider,
     Crumb,
+    Collapse,
   },
   data() {
     return {

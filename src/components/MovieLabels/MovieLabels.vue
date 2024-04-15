@@ -16,6 +16,14 @@ export default {
   name: "MovieLabels",
   props: {
     movie: {
+      type: Object,
+      default() {
+        return {
+          vote_average: 0,
+          release_date: "",
+          first_air_date: "",
+        };
+      },
       vote_average: Number,
       release_date: String,
       first_air_date: String,

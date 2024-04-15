@@ -12,7 +12,7 @@
           :key="index"
           :class="`slide--${index}`"
         >
-          <MovieSliderItem :movie="movie" v-on:select-movie="selectMovie" />
+          <MovieSliderItem :movie="movie" @v-on:select-movie="selectMovie" />
         </div>
       </Slider>
       <transition name="fade-in-up">

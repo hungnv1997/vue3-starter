@@ -56,6 +56,18 @@ export default {
       overview: String,
       genre_ids: Array,
       backdrop_path: String,
+      type: Object,
+      default() {
+        return {
+          id: 0,
+          name: "",
+          title: "",
+          overview: "",
+          genre_ids: [],
+          backdrop_path: "",
+          type: Object,
+        };
+      },
     },
     isFull: {
       type: Boolean,

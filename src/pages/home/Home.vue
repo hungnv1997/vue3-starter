@@ -1,7 +1,7 @@
 <template>
   <div class="Home">
     <div class="Home__main-slider">
-      <Slider ref="slider" :options="options">
+      <Slider ref="slider" :autoplay="true" :options="options">
         <div
           :key="index"
           :class="`slide--${index}`"

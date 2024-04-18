@@ -1,7 +1,7 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 
 import Default from "../layouts/Default.vue";
-// import AuthLayout from "../layouts/AuthLayout.vue";
+import AuthLayout from "../layouts/AuthLayout.vue";
 const routes = [
   {
     path: "/",
@@ -41,7 +41,7 @@ const routes = [
     name: "404",
     component: () => import("../pages/404/PageNotFound.vue"),
     meta: {
-      layout: Default,
+      layout: AuthLayout,
     },
   },
 ];

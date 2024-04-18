@@ -4,6 +4,7 @@
     <div v-click-outside="unselectMovie">
       <Slider
         ref="slider"
+        :autoplay="true"
         :options="options"
         :class="{ 'Slider--has-selected': selectedMovie }"
       >
@@ -216,9 +217,11 @@ export default {
       ],
       selectedMovie: null,
       options: {
+        autoplay: true,
+        autoplaySpeed: 2000,
         dots: false,
         navButtons: false,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 5,
         mobileFirst: false,
         speed: 300,

@@ -1,9 +1,12 @@
 // import { store } from "../store/index.js";
+// import imageUrl from "@/assets/images/book.webp";
+function getImageUrl() {
+  // url, size = 3, type
+  // return imageUrl;
+  // return `${require("@/assets/images/book.webp")}`;
 
-function getImageUrl(url, size = 3, type) {
-  console.log(url, size, type, "url");
-  // return 'http://image.tmdb.org/t/p/w1280/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg'
-  return "";
+  return "http://image.tmdb.org/t/p/w1280/2C3CdVzINUm5Cm1lrbT2uiRstwX.jpg";
+  // return "";
   // let store = null
   // const config = store?.getters?.configuration;
   // if (!config) return null;

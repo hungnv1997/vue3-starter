@@ -87,7 +87,7 @@ export default {
 @import "../home/Home.scss";
 .story__details {
   margin-top: 6rem;
-  width: 100vw;
+  width: 100%;
   //   background-color: black;
 }
 </style>

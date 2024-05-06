@@ -12,6 +12,7 @@
         <i class="fas fa-chevron-left"></i>
         <i class="fas fa-bookmark"></i>
       </div>
+      <Crumb />
       <div class="book-cover" id="book-cover-id">
         <div class="book-top">{{ bookTitle }}</div>
         <img
@@ -21,7 +22,6 @@
         />
       </div>
       <div class="preface" id="preface-id">
-        <Crumb />
         <div class="content">
           <div class="header">
             <div class="title">{{ bookTitle }}</div>
@@ -293,11 +293,11 @@ export default {
 <style lang="scss" scoped>
 $mobile-width: 325px;
 $mobile-height: 670px;
-$mobile-radius: 25px;
+$mobile-radius: 0.559rem;
 $separator-height: 500px;
 
-$mobile-bg: #fdeae6;
-$font-color: #807b7b;
+$mobile-bg: #292929;
+$font-color: #fff;
 
 $transition: transform 0.7s ease-in-out;
 

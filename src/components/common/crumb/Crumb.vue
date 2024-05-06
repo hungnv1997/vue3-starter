@@ -16,7 +16,7 @@
             <div class="bread-crumb__link">Details</div>
           </li>
           <li class="bread-crumb__list-item">
-            <div class="bread-crumb__link">User accounts</div>
+            <div class="bread-crumb__link">Toàn cầu băng phong</div>
           </li>
         </ul>
       </div>

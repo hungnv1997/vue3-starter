@@ -84,18 +84,22 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
-
+$color-crumb: #565656;
 .bread-crumb__list-item:not(:first-child):before {
   display: inline-block;
   width: 1.2rem;
   content: ">";
   text-align: center;
-  color: #0085b2;
+  color: $color-crumb;
   font-size: 0.8rem;
 }
 .bread-crumb__link {
   cursor: pointer;
-  color: #0085b2;
+  color: $color-crumb;
   font-size: 0.8rem;
+}
+.bread-crumb__link:hover {
+  color: #0085b2;
+  text-decoration: underline;
 }
 </style>

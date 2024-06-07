@@ -266,7 +266,7 @@ export default {
     },
     handleViewChapter($movie) {
       console.log($movie.id);
-      this.$router.push(`detail/${$movie}`);
+      this.$router.push(`detail/${$movie.id}`);
     },
   },
   // mounted() {

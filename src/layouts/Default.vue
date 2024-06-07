@@ -2,9 +2,11 @@
   <!-- blank -->
   <SiteHeaderVue />
   <router-view />
+  <SiteFooter />
 </template>
 <script setup>
 import SiteHeaderVue from "../components/Header/SiteHeader.vue";
+import SiteFooter from "../components/common/footer/SiteFooter.vue";
 </script>
 <style lang="scss" scoped>
 .logo {

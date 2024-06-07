@@ -13,7 +13,15 @@
           :key="index"
           :class="`slide--${index}`"
         >
-          <MovieSliderItem :movie="movie" @v-on:select-movie="selectMovie" />
+          <MovieSliderItem
+            :movie="movie"
+            @v-on:select-movie="selectMovie"
+            @click="
+              () => {
+                handleViewChapter(movie);
+              }
+            "
+          />
         </div>
       </Slider>
       <transition name="fade-in-up">
@@ -255,6 +263,10 @@ export default {
     },
     unselectMovie() {
       this.selectedMovie = null;
+    },
+    handleViewChapter($movie) {
+      console.log($movie.id);
+      this.$router.push(`detail/${$movie}`);
     },
   },
   // mounted() {

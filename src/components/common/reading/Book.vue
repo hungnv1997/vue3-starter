@@ -1,4 +1,9 @@
 <template>
+  <Pagination
+    v-model="currentPage"
+    :page-count="+pagination.lastPage"
+    @input="handleChangePage"
+  />
   <div class="">
     <div class="mobile-layout">
       <div class="notification-header">
@@ -255,20 +260,29 @@ https://saranyamk.github.io/images-repo/book-side.svg
 
 <script>
 import Crumb from "@/components/common/crumb/Crumb.vue";
+import Pagination from "../../common/paginate/Pagination.vue";
 
 export default {
   components: {
     Crumb,
+    Pagination,
   },
   data() {
     return {
       bookTitle: "Toàn cầu băng phong",
+      currentPage: 1,
+      pagination: {
+        lastPage: 20,
+      },
     };
   },
   setup() {
     return {};
   },
   methods: {
+    handleChangePage() {
+      console.log("first");
+    },
     scrollRotate() {
       let image = document.getElementById("book-cover-id");
       image.style.transform =

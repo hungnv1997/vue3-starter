@@ -13,14 +13,15 @@
         <i class="fas fa-bookmark"></i>
       </div>
       <Crumb />
-      <div class="book-cover" id="book-cover-id">
+      <!-- <div class="book-cover" id="book-cover-id">
         <div class="book-top">{{ bookTitle }}</div>
         <img
+          id="book-side-bottom"
           class="book-side"
           src="https://raw.githubusercontent.com/atomic-variable/images-repo/e37f432405904a280858e5437ce1960753bc78a3/book-side.svg"
           alt="book-side"
         />
-      </div>
+      </div> -->
       <div class="preface" id="preface-id">
         <div class="content">
           <div class="header">
@@ -264,13 +265,6 @@ export default {
       bookTitle: "Toàn cầu băng phong",
     };
   },
-  mounted() {
-    // index.js
-    window.addEventListener("scroll", this.scrollRotate);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.scrollRotate);
-  },
   setup() {
     return {};
   },
@@ -279,7 +273,7 @@ export default {
       let image = document.getElementById("book-cover-id");
       image.style.transform =
         "rotateX(" +
-        Math.min(Math.min(window.pageYOffset / 2, 75), 62) +
+        Math.min(Math.min(window.pageYOffset / 2, 20), 22) +
         "deg)" +
         "translateZ(3px) scale(0.75)";
       let text = document.getElementById("preface-id");
@@ -318,7 +312,7 @@ $transition: transform 0.7s ease-in-out;
   overflow: hidden;
   color: $font-color;
   background-color: $mobile-bg;
-  box-shadow: 36px 36px 50px 15px rgba(238, 215, 209, 0.82);
+  // box-shadow: 36px 36px 50px 15px rgba(238, 215, 209, 0.82);
 
   .notification-header,
   .actions {
@@ -370,7 +364,9 @@ $transition: transform 0.7s ease-in-out;
     justify-content: center;
     align-items: center;
   }
-
+  #book-side-bottom {
+    // min-width: 19.8rem;
+  }
   .book-side {
     width: 19.8rem;
     position: absolute;
@@ -379,12 +375,11 @@ $transition: transform 0.7s ease-in-out;
     right: 0;
     bottom: 0;
     margin: auto;
-    transform: translateY(-15px) translateX(0px) translateZ(15px)
-      rotateX(104deg);
+    transform: translateY(-40px) translateX(0px) translateZ(15px) rotateX(34deg);
   }
 
   .preface {
-    height: $separator-height;
+    height: 100%;
     padding: 50px;
     transition: $transition;
 

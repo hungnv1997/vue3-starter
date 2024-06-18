@@ -7,14 +7,14 @@ $gray_light: #D3D3D3;
 $white: #FFFFFF;
 $navy_dark: #000080;
 $radius: 5px;
-
+$gray_bg: #454545;
 .block-pagination {
   font-size: $fs12;
   display: flex;
   align-items: center;
   gap: $narrow;
   justify-content: center;
-
+ 
   &__right, &__text, &__items {
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@ $radius: 5px;
     height: 3rem;
     border: 1px solid $gray;
     border-radius: $radius;
-    background: $gray_light;
+    background: $gray_bg;
     align-items: center;
     justify-content: center;
 
@@ -54,14 +54,14 @@ $radius: 5px;
     }
 
     &:hover {
-      background: $white;
+      background: $gray_light;
     }
 
     &--arrow {
       @extend .block-pagination__item;
       min-width: 10rem;
       padding: $narrow/$goldRatio;
-
+      color: $white;
       img {
         margin: 0;
       }
@@ -73,6 +73,9 @@ $radius: 5px;
       border: none;
       background: none;
       align-items: flex-end;
+      &:hover {
+        background: transparent;
+      }
     }
   }
 }

@@ -1,32 +1,12 @@
 <template>
-  <Pagination
-    v-model="currentPage"
-    :page-count="+pagination.lastPage"
-    @input="handleChangePage"
-  />
   <div class="">
     <div class="mobile-layout">
-      <div class="notification-header">
-        <div class="necessities">
-          <i class="fas fa-signal"></i>
-          <i class="fas fa-wifi"></i>
-          <i class="fas fa-battery-full"></i>
-        </div>
-      </div>
-      <div class="actions">
-        <i class="fas fa-chevron-left"></i>
-        <i class="fas fa-bookmark"></i>
-      </div>
       <Crumb />
-      <!-- <div class="book-cover" id="book-cover-id">
-        <div class="book-top">{{ bookTitle }}</div>
-        <img
-          id="book-side-bottom"
-          class="book-side"
-          src="https://raw.githubusercontent.com/atomic-variable/images-repo/e37f432405904a280858e5437ce1960753bc78a3/book-side.svg"
-          alt="book-side"
-        />
-      </div> -->
+      <Pagination
+        v-model="currentPage"
+        :page-count="+pagination.lastPage"
+        @input="handleChangePage"
+      />
       <div class="preface" id="preface-id">
         <div class="content">
           <div class="header">

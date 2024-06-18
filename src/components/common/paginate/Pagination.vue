@@ -1,8 +1,6 @@
 <template>
   <paginate
     v-model="page"
-    :currentPage="2"
-    :totalPages="20"
     :page-range="1"
     :margin-pages="0"
     :click-handler="clickCallback"
@@ -44,6 +42,9 @@ export default {
 ::v-deep {
   .block-pagination__item--ellipsis {
     cursor: text;
+  }
+  .block-pagination__item {
+    color: #fff;
   }
 }
 </style>

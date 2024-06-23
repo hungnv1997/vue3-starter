@@ -3,7 +3,7 @@
     <div class="mobile-layout">
       <Crumb />
       <Pagination
-        v-model="currentPage"
+        :current-page="currentPage"
         :page-count="+pagination.lastPage"
         @input="handleChangePage"
       />
@@ -230,6 +230,12 @@
           </div>
         </div>
       </div>
+      <Pagination
+        :current-page="currentPage"
+        :page-count="+pagination.lastPage"
+        @input="handleChangePage"
+      />
+      <div class="padding-top--narrow"></div>
     </div>
   </div>
 
@@ -252,7 +258,7 @@ export default {
       bookTitle: "Toàn cầu băng phong",
       currentPage: 1,
       pagination: {
-        lastPage: 20,
+        lastPage: 10,
       },
     };
   },
@@ -260,8 +266,10 @@ export default {
     return {};
   },
   methods: {
-    handleChangePage() {
-      console.log("first");
+    handleChangePage($page) {
+      console.log($page);
+      this.currentPage = $page;
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
     scrollRotate() {
       let image = document.getElementById("book-cover-id");

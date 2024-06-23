@@ -1,6 +1,6 @@
 <template>
   <paginate
-    v-model="page"
+    :value="currentPage"
     :page-range="1"
     :margin-pages="0"
     :click-handler="clickCallback"
@@ -25,15 +25,20 @@ export default {
   components: {
     Paginate,
   },
-  data() {
-    return {
-      page: 10,
-    };
+  model: {
+    prop: "content",
+    event: "change",
   },
-
+  props: {
+    currentPage: {
+      type: Number,
+      default: 1,
+    },
+  },
   methods: {
     clickCallback(pageNum) {
-      console.log(pageNum);
+      this.$emit("change", pageNum);
+      this.$emit("input", pageNum);
     },
   },
 };

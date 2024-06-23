@@ -84,7 +84,7 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
-$color-crumb: #565656;
+$color-crumb: #fff;
 .bread-crumb__list-item:not(:first-child):before {
   display: inline-block;
   width: 1.2rem;

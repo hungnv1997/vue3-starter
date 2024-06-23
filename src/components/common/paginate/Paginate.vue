@@ -383,4 +383,7 @@ export default {
 a {
   cursor: pointer;
 }
+.page-item {
+  font-weight: 900;
+}
 </style>

@@ -1,13 +1,16 @@
 <template>
-  <div class="">
-    <div class="mobile-layout">
-      <Crumb />
-      <Pagination
-        :current-page="currentPage"
-        :page-count="+pagination.lastPage"
-        @input="handleChangePage"
-      />
-      <div class="preface" id="preface-id">
+  <div class="h-full">
+    <Crumb />
+    <div class="mobile-layout py-8">
+      <div class="flex justify-between mx-12 border-b border-white pb-4">
+        <div class="text-lg font-bold">Chap 143</div>
+        <Pagination
+          :current-page="currentPage"
+          :page-count="+pagination.lastPage"
+          @input="handleChangePage"
+        />
+      </div>
+      <div class="mx-12 text-left text-base overflow-y pt-4" id="preface-id">
         <div class="content">
           <div class="header">
             <div class="title">{{ bookTitle }}</div>
@@ -230,12 +233,6 @@
           </div>
         </div>
       </div>
-      <Pagination
-        :current-page="currentPage"
-        :page-count="+pagination.lastPage"
-        @input="handleChangePage"
-      />
-      <div class="padding-top--narrow"></div>
     </div>
   </div>
 
@@ -270,17 +267,6 @@ export default {
       console.log($page);
       this.currentPage = $page;
       window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-    scrollRotate() {
-      let image = document.getElementById("book-cover-id");
-      image.style.transform =
-        "rotateX(" +
-        Math.min(Math.min(window.pageYOffset / 2, 20), 22) +
-        "deg)" +
-        "translateZ(3px) scale(0.75)";
-      let text = document.getElementById("preface-id");
-      text.style.transform =
-        "translateY(" + Math.max(-window.pageYOffset, -302) + "px)";
     },
   },
 };

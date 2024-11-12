@@ -1,11 +1,11 @@
 <template>
   <paginate
     :value="currentPage"
-    :page-range="1"
+    :page-range="pageRange"
     :margin-pages="0"
     :click-handler="clickCallback"
-    :prev-text="'Prev'"
-    :next-text="'Next'"
+    :prev-text="'<'"
+    :next-text="'>'"
     :page-class="'page-item'"
     :container-class="'block-pagination__items'"
     :active-class="'block-pagination__item--current'"
@@ -33,6 +33,15 @@ export default {
     currentPage: {
       type: Number,
       default: 1,
+    },
+  },
+  computed: {
+    /**
+     * @returns {Number} The number of pages to display in the pagination, given
+     *   the current screen size.
+     */
+    pageRange() {
+      return this.isMobile ? 3 : 5;
     },
   },
   methods: {

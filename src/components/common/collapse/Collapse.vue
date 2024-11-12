@@ -1,5 +1,5 @@
 <template>
-  <div class="box--border margin--narrow">
+  <div class="box--border rounded margin--narrow">
     <!-- border body start -->
     <div class="box--border__content">
       <!-- list info start -->
@@ -11,7 +11,7 @@
         <!-- list info top start -->
         <!-- heading accordion start -->
         <div class="box--border__top__text">
-          <p class="font--smallest">{{ title }}</p>
+          <p class="text-sm font-bold text-white">{{ title }}</p>
         </div>
         <div
           :id="`btn${id}`"
@@ -36,7 +36,7 @@
       </div>
       <div
         :id="`target${id}`"
-        class="box--border__body padding-top--narrow u-margin-top--narrowest u-disp-none"
+        class="box--border__body pt-4 u-margin-top--narrowest u-disp-none text-xs"
         data-toggle="targetC"
         :style="{ display: initDisplayTarget ? 'block' : 'none' }"
       >
@@ -122,10 +122,9 @@ export default {
 .box--border {
   -webkit-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #fff;
   &__content {
-    padding: 1.6rem;
+    padding: 1rem 1.6rem;
   }
   &__top {
     display: -webkit-box;

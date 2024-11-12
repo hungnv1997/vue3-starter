@@ -1,24 +1,21 @@
 <template>
   <div class="story__details">
     <Crumb />
-    <MovieDetails :movie="movie" :is-full="false" />
+    <!-- <MovieDetails :movie="movie" :is-full="false" /> -->
     <!-- <MovieSliderItem :movie="movie" /> -->
   </div>
-  <div class="Home__slider-list">
+  <!-- <div class="Home__slider-list">
     <MovieSlider
       category-title="Netflix Originals"
       request-url="discover/tv?with_networks=213"
     />
-  </div>
+  </div> -->
   <div class="margin-top">
     <Collapse
-      :title="'Mới nhất'"
+      title="Mới nhất"
       :is-show-btn-img="true"
       :init-display-target="true"
     >
-      <template #target> sdfdsf </template>
-    </Collapse>
-    <Collapse :title="'Chap 1 - Chap 10'">
       <template #target>
         <router-link
           class="bread-crumb__link"
@@ -27,26 +24,40 @@
         >
       </template>
     </Collapse>
-    <Collapse :title="'Chap 10 - Chap 20'">
-      <template #target> sdfdsf </template>
-    </Collapse>
+    <TableCommon
+      :columnsConfig="columnsConfig"
+      :data="chapters"
+      class="overflow-x-auto box--border"
+    >
+      <template #top-left>
+        <h2 class="text-lg font-bold">Danh sách chương</h2>
+      </template>
+      <template #pagination>
+        <Pagination
+          v-model="currentPage"
+          :page-count="totalPages"
+          @input="handlePageChange"
+        />
+      </template>
+    </TableCommon>
   </div>
 </template>
 
 <script>
-// import MovieSliderItem from "../../components/MovieSliderItem/MovieSliderItem.vue";
-
-import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
-import MovieSlider from "../../components/MovieSlider/MovieSlider.vue";
+// import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
 import Collapse from "../../components/common/collapse/Collapse.vue";
 import Crumb from "../../components/common/crumb/Crumb.vue";
+import TableCommon from "@/components/common/table/TableCommon.vue";
+import Pagination from "@/components/common/paginate/Pagination.vue";
 import { routes } from "@/helpers/constants.js";
+
 export default {
   components: {
-    MovieDetails,
-    MovieSlider,
+    // MovieDetails,
     Crumb,
     Collapse,
+    TableCommon,
+    Pagination,
   },
   data() {
     return {
@@ -68,6 +79,31 @@ export default {
         vote_average: 7,
         vote_count: 60,
       },
+      chapters: [
+        { id: 1, title: "Chương 1", date: "22/10/2022" },
+        { id: 2, title: "Chương 2", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+      ],
+      columnsConfig: [
+        {
+          value: "id",
+          label: "#",
+          type: "text",
+        },
+        {
+          value: "title",
+          label: "Tên",
+          type: "text",
+          align: "left",
+        },
+        {
+          value: "date",
+          label: "Ngày",
+          type: "text",
+        },
+      ],
+      currentPage: 1,
+      totalPages: 10,
     };
   },
   created() {
@@ -79,6 +115,10 @@ export default {
     },
     goBack() {
       this.$router.go(-1);
+    },
+    handlePageChange(newPage) {
+      this.currentPage = newPage;
+      // Handle page change logic
     },
   },
 };

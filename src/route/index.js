@@ -1,5 +1,6 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 
+import FitLayout from "../layouts/FitLayout.vue";
 import Default from "../layouts/Default.vue";
 import AuthLayout from "../layouts/AuthLayout.vue";
 const routes = [
@@ -25,7 +26,7 @@ const routes = [
     name: "Movie",
     component: () => import("../pages/reading/Reading.vue"),
     meta: {
-      layout: Default,
+      layout: FitLayout,
     },
   },
   // {

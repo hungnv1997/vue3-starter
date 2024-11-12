@@ -8,9 +8,15 @@ import { createPinia } from "pinia";
 import piniaPersist from "pinia-plugin-persist";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "./helpers/fontawesome";
+
+import { commonMixin } from "./mixins/common";
+
 const pinia = createPinia();
 pinia.use(piniaPersist);
 const app = createApp(App);
+
+app.mixin(commonMixin);
+
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);
 app.use(i18n);

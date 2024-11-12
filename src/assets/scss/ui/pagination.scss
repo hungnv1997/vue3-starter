@@ -1,13 +1,11 @@
 $fs12: 12px;
-$narrow: 10px;
-$normal: 15px;
+$narrow: 5px;
+$normal: 10px;
 $goldRatio: 1.618;
-$gray: #808080;
-$gray_light: #D3D3D3;
-$white: #FFFFFF;
-$navy_dark: #000080;
+$dark: #222222;
+$light: #FFFFFF;
 $radius: 5px;
-$gray_bg: #454545;
+
 .block-pagination {
   font-size: $fs12;
   display: flex;
@@ -38,29 +36,31 @@ $gray_bg: #454545;
 
   &__item {
     display: flex;
-    width: 3rem;
-    height: 3rem;
-    border: 1px solid $gray;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid $dark;
     border-radius: $radius;
-    background: $gray_bg;
+    background: $dark;
     align-items: center;
     justify-content: center;
-
+    color: $light;
     &--current {
       font-weight: bold;
       pointer-events: none;
-      color: $white;
+      .block-pagination__item {
+        background-color:$light ;
+        color: #333 !important;
+      }
     }
-
     &:hover {
-      background: $gray_light;
+      background: $light;
+      color: $dark;
     }
 
     &--arrow {
       @extend .block-pagination__item;
-      min-width: 10rem;
+      // min-width: 10rem;
       padding: $narrow/$goldRatio;
-      color: $white;
       img {
         margin: 0;
       }
@@ -78,3 +78,4 @@ $gray_bg: #454545;
     }
   }
 }
+

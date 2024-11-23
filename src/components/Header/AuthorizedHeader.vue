@@ -57,23 +57,18 @@
       </ul>
     </nav>
 
-    <div
-      class="Header__search"
-      :class="[{ 'Header__search--active': search }, 'Header__search']"
-    >
-      <label class="flex-jc">
-        <font-awesome-icon
-          :icon="['fas', 'search']"
-          class="Header__search-icon"
-        />
-        <input
+    <div class="flex justify-end">
+      <font-awesome-icon
+        :icon="['fas', 'search']"
+        class="Header__search-icon"
+      />
+      <!-- <input
           name="search"
           type="text"
           placeholder="Titles, characters, geners"
           v-model="search"
           class="Header__search-input"
-        />
-      </label>
+        /> -->
     </div>
 
     <div class="Header__actions">

@@ -23,7 +23,7 @@
 <script>
 import Crumb from "@/components/common/crumb/Crumb.vue";
 import Pagination from "@/components/common/paginate/Pagination.vue";
-import { ref, onMounted, computed } from "vue";
+import { ref, computed } from "vue";
 
 export default {
   components: {
@@ -50,9 +50,6 @@ export default {
   },
   setup() {
     const siteCrumb = ref(null);
-    onMounted(() => {
-      console.log(siteCrumb.value.clientHeight);
-    });
     const crumbHeight = computed(() => {
       return `${siteCrumb?.value?.clientHeight}px`;
     });

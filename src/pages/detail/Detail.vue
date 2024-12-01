@@ -1,45 +1,38 @@
 <template>
-  <div class="story__details">
+  <div v-get-size="calcSizeCrumb">
     <Crumb />
-    <!-- <MovieDetails :movie="movie" :is-full="false" /> -->
-    <!-- <MovieSliderItem :movie="movie" /> -->
   </div>
+  <!-- <MovieDetails :movie="movie" :is-full="false" /> -->
+  <!-- <MovieSliderItem :movie="movie" /> -->
   <!-- <div class="Home__slider-list">
     <MovieSlider
       category-title="Netflix Originals"
       request-url="discover/tv?with_networks=213"
     />
   </div> -->
-  <div class="margin-top">
-    <Collapse
-      title="Mới nhất"
-      :is-show-btn-img="true"
-      :init-display-target="true"
-    >
-      <template #target>
-        <router-link
-          class="bread-crumb__link"
-          :to="'/tan-the-bang-phong/chap-1'"
-          >Chap 1: Test</router-link
-        >
-      </template>
-    </Collapse>
-    <TableCommon
-      :columnsConfig="columnsConfig"
-      :data="chapters"
-      class="overflow-x-auto box--border"
-    >
-      <template #top-left>
-        <h2 class="text-lg font-bold">Danh sách chương</h2>
-      </template>
-      <template #pagination>
-        <Pagination
-          v-model="currentPage"
-          :page-count="totalPages"
-          @input="handlePageChange"
-        />
-      </template>
-    </TableCommon>
+  <div class="margin-top h-full">
+    <div v-get-size="calcSize">
+      <Collapse
+        title="Mới nhất"
+        :is-show-btn-img="true"
+        :init-display-target="true"
+      >
+        <template #target>
+          <router-link
+            class="bread-crumb__link"
+            :to="'/tan-the-bang-phong/chap-1'"
+            >Chap 1: Test</router-link
+          >
+        </template>
+      </Collapse>
+    </div>
+    <div class="table-list-chapter">
+      <TableCommon :columnsConfig="columnsConfig" :data="chapters">
+        <template #top-left>
+          <h2 class="text-lg font-bold">Danh sách chương</h2>
+        </template>
+      </TableCommon>
+    </div>
   </div>
 </template>
 
@@ -48,7 +41,6 @@
 import Collapse from "../../components/common/collapse/Collapse.vue";
 import Crumb from "../../components/common/crumb/Crumb.vue";
 import TableCommon from "@/components/common/table/TableCommon.vue";
-import Pagination from "@/components/common/paginate/Pagination.vue";
 import { routes } from "@/helpers/constants.js";
 
 export default {
@@ -57,7 +49,6 @@ export default {
     Crumb,
     Collapse,
     TableCommon,
-    Pagination,
   },
   data() {
     return {
@@ -83,6 +74,15 @@ export default {
         { id: 1, title: "Chương 1", date: "22/10/2022" },
         { id: 2, title: "Chương 2", date: "22/10/2022" },
         { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
+        { id: 3, title: "Chương 3", date: "22/10/2022" },
       ],
       columnsConfig: [
         {
@@ -104,12 +104,20 @@ export default {
       ],
       currentPage: 1,
       totalPages: 10,
+      heightCollapse: "0px",
+      heightCrumb: "0px",
     };
   },
   created() {
     this.fetchMovieDetail();
   },
   methods: {
+    calcSizeCrumb($size) {
+      this.heightCrumb = $size.height ? $size.height + "px" : "0px";
+    },
+    calcSize($size) {
+      this.heightCollapse = $size.height ? $size.height + "px" : "0px";
+    },
     fetchMovieDetail() {
       // Fetch movie details from your API
     },
@@ -126,8 +134,11 @@ export default {
 <style lang="scss">
 @import "../home/Home.scss";
 .story__details {
-  margin-top: 6rem;
+  margin-top: 3rem;
   width: 100%;
   //   background-color: black;
+}
+.table-list-chapter {
+  height: calc(100% - v-bind(heightCollapse) - v-bind(heightCrumb) - 6rem);
 }
 </style>

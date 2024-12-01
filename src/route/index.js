@@ -18,7 +18,7 @@ const routes = [
     name: "detail",
     component: () => import("../pages/detail/Detail.vue"),
     meta: {
-      layout: Default,
+      layout: FitLayout,
     },
   },
   {

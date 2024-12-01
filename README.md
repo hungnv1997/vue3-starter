@@ -5,6 +5,11 @@
 - [ ] VIP member (reading + without ads + tag ten + bxh donate)
 - [ ] Favorite
 
+# Update
+
+- [ ] list chapter css
+- [ ] perpage
+
 # Menu
 
 - Home

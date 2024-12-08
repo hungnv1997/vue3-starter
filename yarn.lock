@@ -199,6 +199,11 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
+"@mediapipe/tasks-genai@0.10.19-rc.20241118":
+  version "0.10.19-rc.20241118"
+  resolved "https://registry.yarnpkg.com/@mediapipe/tasks-genai/-/tasks-genai-0.10.19-rc.20241118.tgz#e45bfceeefa942c15ba97623602dbcb37ef4d1d6"
+  integrity sha512-A4pkn5whQ9StMXo1s79C0t0hkTmib0GsZO3G1yfWtpMgCYcJaqDIEtqDe2CJQzZixE2fJftxAndoejbuenUpuQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -774,6 +779,11 @@ fastq@^1.6.0:
   integrity sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==
   dependencies:
     reusify "^1.0.4"
+
+fetch-in-chunks@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/fetch-in-chunks/-/fetch-in-chunks-1.3.0.tgz#3aebcbd586c939826888e4e42e945ec7241bd3f2"
+  integrity sha512-xl3x5euMKLYea2+n5ahwlMYelqVllYdPDT8n9nPHRKvE2kCC1hE26vYvevz3XLd1vzwP9Xq0yvSPx4ra+0FhCg==
 
 file-entry-cache@^6.0.1:
   version "6.0.1"

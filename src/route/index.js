@@ -1,4 +1,4 @@
-import { createWebHashHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 import Default from "../layouts/Default.vue";
 import AuthLayout from "../layouts/AuthLayout.vue";
@@ -62,10 +62,18 @@ const routes = [
       layout: AuthLayout,
     },
   },
+  {
+    path: "/gen-ai",
+    name: "gen-ai",
+    component: () => import("../pages/GenAI.vue"),
+    meta: {
+      layout: AuthLayout,
+    },
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 

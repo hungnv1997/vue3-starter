@@ -28,6 +28,7 @@
         <h2 class="text-lg font-medium mb-4">Import Image</h2>
         <div
           class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+          v-if="!previewImage"
         >
           <div class="space-y-1 text-center">
             <svg
@@ -47,23 +48,41 @@
               <label
                 for="importImage"
                 class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                @drop.prevent="onFileChanged"
               >
-                <span>Upload a file</span>
+                <span>Upload a image</span>
                 <input
                   id="importImage"
                   name="importImage"
                   type="file"
                   class="sr-only"
+                  @change="onFileChanged"
                 />
               </label>
               <p class="pl-1">or drag and drop</p>
             </div>
           </div>
         </div>
+        <!-- Preview -->
+        <div v-if="previewImage" class="relative">
+          <!-- add x icon with hover effect here to remove the image -->
+          <button
+            class="absolute top-2 right-2 bg-white rounded-full p-1 cursor-pointer hover:bg-gray-200"
+            @click="closePreview"
+          >
+            x
+          </button>
+          <img
+            :src="previewImage"
+            alt="Preview Image"
+            class="w-full h-48 object-cover rounded-lg"
+          />
+        </div>
       </div>
 
       <button
         class="border-0 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-yellow-600 hover:to-pink-600"
+        @click="generateImage"
       >
         <svg
           width="36"
@@ -98,17 +117,22 @@
 
       <!-- AI Insights -->
       <div class="widget">
-        <h2 class="text-lg font-medium mb-4">AI Insights</h2>
-        <div>
-          <p class="text-sm text-gray-500">20% Less productive than usual.</p>
+        <h2 class="text-lg font-medium mb-4">AI Art</h2>
+        <!-- skeleton gradient loading image -->
+
+        <div v-if="mode === MODE.INIT" class="w-full h-48 rounded-lg">
+          The result will appear here
         </div>
-        <div class="my-4">
-          <p class="font-bold text-2xl">9/23</p>
-          <p class="text-sm text-gray-500">Tasks completed this week.</p>
-        </div>
-        <p class="text-sm text-gray-500">
-          Work for 25 mins, take 5 mins break.
-        </p>
+        <div
+          v-if="mode === MODE.LOADING"
+          class="w-full h-48 bg-gray-200 animate-pulse rounded-lg"
+        ></div>
+        <img
+          v-if="mode === MODE.DONE"
+          :src="previewImage"
+          alt="Preview Image"
+          class="w-full h-48 object-cover rounded-lg"
+        />
       </div>
     </div>
   </div>
@@ -116,13 +140,48 @@
 
 <script>
 import { useI18n } from "vue-i18n";
-
+import { ref, onUnmounted } from "vue";
+const MODE = {
+  INIT: "init",
+  LOADING: "loading",
+  DONE: "done",
+};
 export default {
   setup() {
+    const previewImage = ref(null);
+    const mode = ref(MODE.INIT);
     const { t, locale } = useI18n();
+    const onFileChanged = (e) => {
+      // add loading spinner here if needed
+
+      previewImage.value = URL.createObjectURL(e.target.files[0]);
+    };
+
+    const closePreview = () => {
+      URL.revokeObjectURL(previewImage.value);
+      previewImage.value = null;
+    };
+    const generateImage = () => {
+      // add loading spinner here if needed
+      mode.value = MODE.LOADING;
+      setTimeout(() => {
+        mode.value = MODE.DONE;
+      }, 2000);
+    };
+    // revoke the object URL to avoid memory leaks
+    // when the component is unmounted
+    onUnmounted(() => {
+      URL.revokeObjectURL(previewImage.value);
+    });
     return {
       t,
       locale,
+      onFileChanged,
+      previewImage,
+      closePreview,
+      mode,
+      MODE,
+      generateImage,
     };
   },
 };

@@ -3,6 +3,7 @@ import { actions } from "../../helpers/constants";
 export default {
   state: {
     myList: [],
+    homeList: [],
   },
   mutations: {
     setMyList(state, payload) {

@@ -34,3 +34,7 @@ export const actions = {
   addMovieToMyList: "addMovieToMyList",
   removeMovieFromMyList: "removeMovieFromMyList",
 };
+
+export const storage = {
+  home_storage: "asdfsdafsad",
+};

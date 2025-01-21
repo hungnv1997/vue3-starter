@@ -44,7 +44,7 @@
 <script>
 import MovieLabels from "@/components/MovieLabels/MovieLabels.vue";
 import getImageUrl from "../../helpers/getImageUrl";
-import { actions } from "../../helpers/constants";
+// import { actions } from "../../helpers/constants";
 
 export default {
   name: "MovieDetails",
@@ -76,11 +76,12 @@ export default {
   },
   computed: {
     movieGenres() {
-      if (!this.$store?.getters?.genres) return "";
-      return this.$store?.getters?.genres.movies
-        .filter(({ id }) => this.movie.genre_ids.includes(id))
-        .map(({ name }) => name)
-        .join(", ");
+      // if (!this.$store?.getters?.genres) return "";
+      // return this.$store?.getters?.genres.movies
+      //   .filter(({ id }) => this.movie.genre_ids.includes(id))
+      //   .map(({ name }) => name)
+      //   .join(", ");
+      return "";
     },
     // isMovieInMyList() {
     //   return this.$store.getters.myList.find(({ id }) => id === this.movie.id);
@@ -93,15 +94,15 @@ export default {
     getBackgroundImageUrl(url, size) {
       return `url(${getImageUrl(url, size, "backdrop")})`;
     },
-    addMovieToMyList() {
-      this.$store.dispatch(actions.addMovieToMyList, {
-        movie: this.movie,
-      });
-    },
+    // addMovieToMyList() {
+    //   this.$store.dispatch(actions.addMovieToMyList, {
+    //     movie: this.movie,
+    //   });
+    // },
     removeMovieFromMyList() {
-      this.$store.dispatch(actions.removeMovieFromMyList, {
-        movie: this.movie,
-      });
+      // this.$store.dispatch(actions.removeMovieFromMyList, {
+      //   movie: this.movie,
+      // });
     },
   },
 };

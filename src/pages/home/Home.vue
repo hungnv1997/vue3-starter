@@ -33,7 +33,8 @@
 import Slider from "../../components/Slider/Slider.vue";
 import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
 import MovieSlider from "@/components/MovieSlider/MovieSlider.vue";
-
+import { checkAndGetData } from "@/helpers/getSetData.js";
+import { storage } from "@/helpers/constants.js";
 export default {
   name: "Home",
   data() {
@@ -220,19 +221,27 @@ export default {
       },
     };
   },
-  computed: {
-    user() {
-      return this.$store.getters.user;
-    },
-  },
+  computed: {},
   components: {
     Slider,
     MovieDetails,
     MovieSlider,
   },
-  mounted() {
-    // this.$refs.slider.toggleLoading();
+  async mounted() {
     this.$refs.slider.disableAutoPlay();
+    // fetch data from API if needed
+    await this.fetchListHome();
+  },
+  methods: {
+    async fetchListHome() {
+      const HOME_LIST = `${import.meta.env.VITE_PREFIX_URL}${
+        import.meta.env.VITE_HOME_URL_ID
+      }${import.meta.env.VITE_END_URL}`;
+      //get data from store
+      let dataStore = await checkAndGetData(storage.home_storage, HOME_LIST);
+      console.log("dataStore", dataStore);
+      // this.movieList = dataStore ?? this.movieList;
+    },
   },
 };
 </script>

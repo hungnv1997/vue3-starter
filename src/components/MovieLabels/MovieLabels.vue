@@ -1,10 +1,10 @@
 <template>
   <div class="MovieLabels">
-    <span
+    <!-- <span
       :class="['MovieLabels__rate', `MovieLabels__rate--${movieRateColor}`]"
     >
       {{ movieRate }} Match
-    </span>
+    </span> -->
     <span class="MovieLabels__date">
       {{ movieReleaseDate }}
     </span>

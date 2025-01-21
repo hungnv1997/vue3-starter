@@ -23,7 +23,7 @@
         <!-- <button v-if="!isMovieInMyList" type="button" class="btn MovieDetails__btn" @click="addMovieToMyList">
           <font-awesome-icon :icon="['fas', 'plus']" class="MovieDetails__btn-icon" fixed-width /> My List
         </button> -->
-        <button
+        <!-- <button
           type="button"
           class="btn MovieDetails__btn"
           @click="removeMovieFromMyList"
@@ -34,7 +34,7 @@
             fixed-width
           />
           My List
-        </button>
+        </button> -->
       </div>
     </div>
     <div class="MovieDetails__fade--bottom" />

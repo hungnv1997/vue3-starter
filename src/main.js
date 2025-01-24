@@ -11,14 +11,12 @@ import "./helpers/fontawesome";
 
 import { commonMixin } from "./mixins/common";
 import getSize from "./directives/getSize";
-
 const pinia = createPinia();
 pinia.use(piniaPersist);
 const app = createApp(App);
 
 app.mixin(commonMixin);
 app.directive("get-size", getSize);
-
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);
 app.use(i18n);

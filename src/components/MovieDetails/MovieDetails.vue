@@ -15,7 +15,7 @@
           {{ movie.overview }}
         </p>
         <p class="MovieDetails__description">
-          Genres:
+          {{ $t("genres") }}:
           <span class="MovieDetails__description--white">{{
             movieGenres
           }}</span>
@@ -45,9 +45,13 @@
 import MovieLabels from "@/components/MovieLabels/MovieLabels.vue";
 import getImageUrl from "../../helpers/getImageUrl";
 // import { actions } from "../../helpers/constants";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "MovieDetails",
+  components: {
+    MovieLabels,
+  },
   props: {
     movie: {
       id: Number,
@@ -74,6 +78,13 @@ export default {
       default: true,
     },
   },
+
+  setup() {
+    const { t } = useI18n({ useScope: "global" });
+    return {
+      $t: t,
+    };
+  },
   computed: {
     movieGenres() {
       // if (!this.$store?.getters?.genres) return "";
@@ -87,9 +98,7 @@ export default {
     //   return this.$store.getters.myList.find(({ id }) => id === this.movie.id);
     // },
   },
-  components: {
-    MovieLabels,
-  },
+
   methods: {
     getBackgroundImageUrl(url, size) {
       return `url(${getImageUrl(url, size, "backdrop")})`;

@@ -89,7 +89,7 @@
 import ProfileDropdown from "../ProfileDropdown/ProfileDropdown.vue";
 import debounce from "@/helpers/debounce";
 import { routes } from "@/helpers/constants";
-
+import { useI18n } from "vue-i18n";
 export default {
   name: "AuthorizedHeader",
   data() {
@@ -99,11 +99,23 @@ export default {
       isMenuOpened: false,
       homeRoute: routes.home,
       navList: [
-        { title: "Home", link: routes.home },
-        { title: "TV Shows", link: routes.tvShows, nav: [] },
-        { title: "Movies", link: routes.movies, nav: [] },
-        { title: "New & Popular", link: routes.popular },
-        { title: "My List", link: routes.myList },
+        {
+          title: useI18n({ useScope: "global" }).t("navigation.home"),
+          link: routes.home,
+        },
+        {
+          title: useI18n({ useScope: "global" }).t("navigation.genres"),
+          link: routes.tvShows,
+          nav: [],
+        },
+        {
+          title: useI18n({ useScope: "global" }).t("navigation.top"),
+          link: routes.movies,
+        },
+        {
+          title: useI18n({ useScope: "global" }).t("navigation.author"),
+          link: routes.popular,
+        },
       ],
     };
   },

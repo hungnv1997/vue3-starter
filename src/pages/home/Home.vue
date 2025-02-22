@@ -13,7 +13,7 @@
     </div>
     <div class="Home__slider-list">
       <MovieSlider
-        category-title="Netflix Originals"
+        :category-title="$t('top')"
         request-url="discover/tv?with_networks=213"
       />
       <!-- <MovieSlider
@@ -35,6 +35,7 @@ import MovieDetails from "../../components/MovieDetails/MovieDetails.vue";
 import MovieSlider from "@/components/MovieSlider/MovieSlider.vue";
 import { checkAndGetData } from "@/helpers/getSetData.js";
 import { storage } from "@/helpers/constants.js";
+import { useI18n } from "vue-i18n";
 export default {
   name: "Home",
   data() {
@@ -219,6 +220,12 @@ export default {
         speed: 300,
         timing: "ease-in-out",
       },
+    };
+  },
+  setup() {
+    const { t } = useI18n({ useScope: "global" });
+    return {
+      $t: t,
     };
   },
   computed: {},

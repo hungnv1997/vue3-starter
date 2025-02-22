@@ -1,0 +1,11 @@
+{
+  "a": "aa",
+  "genres": "Genres",
+  "navigation": {
+    "author": "Tác giả",
+    "genres": "Thể loại",
+    "home": "Trang chủ",
+    "top": "Xếp hạng"
+  },
+  "top": "Top xem nhiều"
+}

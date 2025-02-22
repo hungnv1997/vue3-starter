@@ -14,6 +14,7 @@
 
 - Home
 - Danh muc: tu tien, ngon tinh, kiem hiep, he thong, tan the
+- Xep hang
 - Tac gia:
 
-#
+# App dich truyen: ai

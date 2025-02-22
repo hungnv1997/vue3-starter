@@ -1,4 +1,11 @@
 {
   "a": "en",
-  "genres": "Genres"
+  "genres": "Genres",
+  "navigation": {
+    "author": "Author",
+    "genres": "Genres",
+    "home": "Home",
+    "top": "Top"
+  },
+  "top": "Top"
 }

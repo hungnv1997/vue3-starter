@@ -10,7 +10,7 @@ $slideScale: "1.2";
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
-  border: #{$slideBorderWidth} solid transparent;
+  // border: #{$slideBorderWidth} solid transparent;
   background-color: #000;
   &:after {
     content: none;
@@ -33,10 +33,14 @@ $slideScale: "1.2";
     padding: 0.5rem 1rem;
     opacity: 1;
     transition: all 0.3s ease-in-out;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, transparent);
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      transparent
+    );
     @include sm {
-      opacity: 0;
-      visibility: hidden;
+      // opacity: 0;
+      // visibility: hidden;
     }
     &:before {
       content: "";
@@ -45,7 +49,11 @@ $slideScale: "1.2";
       left: 0;
       width: 100%;
       height: 40%;
-      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, transparent);
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        transparent
+      );
     }
     .MovieLabels {
       font-size: 0.75rem;

@@ -1,6 +1,7 @@
 # Feature
 
 - [x] Reading (get data + decode => set data encode)
+- [ ] set language by user device
 - [ ] Searching
 - [ ] VIP member (reading + without ads + tag ten + bxh donate)
 - [ ] Favorite
@@ -18,3 +19,5 @@
 - Tac gia:
 
 # App dich truyen: ai
+
+# Auto generate Name + description by language

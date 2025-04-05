@@ -3,7 +3,7 @@
       <a-row :gutter="[24, 24]">
         <a-col :span="24">
           <div class="quiz-header">
-            <h1>Quiz Platform</h1>
+            <h1>Quiz List</h1>
             <a-button type="primary" @click="showGeneratorModal = true">
               <template #icon><PlusOutlined /></template>
               Generate Quiz

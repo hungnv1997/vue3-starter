@@ -1,14 +1,33 @@
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="default-layout">
+    <header>
+      <img
+        class="logo vue"
+        src="../assets/logo.png"
+        alt="Vue logo"
+        @click="$router.push('/')"
+      />
+    </header>
+    <main>
+      <router-view />
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Your Company Name</p>
+      <img
+        class="logo"
+        src="../assets/logo.png"
+        alt="Vue logo"
+        @click="$router.push('/')"
+      />
+      <img
+        class="logo"
+        src="../assets/logo.png"
+        alt="Vue logo"
+        @click="$router.push('/')"
+      />
+    </footer>
   </div>
-  <!-- blank -->
-  <router-view />
 </template>
 <style lang="scss" scoped>
 .logo {
